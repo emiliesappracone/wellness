@@ -42,7 +42,10 @@
                                                                             <div class="display-inline-block">
                                                                                 <div class="hidden-xs visible-lg">
                                                                                     <div class="header-statusbar-search">
-                                                                                        <input type="text" class="form-control inputSearchAdmin" placeholder="Rechercher ..." style="background-color: transparent;color:#444;border: 2px solid #444;">
+                                                                                        <input type="text"
+                                                                                               class="form-control inputSearchAdmin"
+                                                                                               placeholder="Rechercher ..."
+                                                                                               style="background-color: transparent;color:#444;border: 2px solid #444;">
                                                                                     </div><!-- /.header-search -->
                                                                                 </div>
                                                                             </div>
@@ -77,7 +80,8 @@
                                                                             </div>
 
                                                                             <div class="statusbox-actions">
-                                                                                <a href="#"><i class="fa fa-eye"></i></a>
+                                                                                <a href="#"><i
+                                                                                            class="fa fa-eye"></i></a>
                                                                                 <a href="#"><i class="fa fa-pencil"></i></a>
                                                                             </div>
                                                                         </div>
@@ -108,5 +112,12 @@
         </div><!-- /.page-wrapper -->
     </div>
 {% endblock %}
-{% block xtraJS %}
+{% block javascripts %}
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.2/select2.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
+    <script type="application/javascript" src="{{ asset('assets/js/Confirm.js') }}"></script>
+    <script type="application/javascript" src="{{ asset('assets/js/sortTable.js') }}"></script>
 {% endblock %}

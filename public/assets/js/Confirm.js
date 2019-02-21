@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('button').on('click', function (e) {
+    $('button.onDelete').on('click', function (e) {
         e.preventDefault();
         var id = $(this).attr('data-id');
         if ($(this).attr('type') == 'submit') {

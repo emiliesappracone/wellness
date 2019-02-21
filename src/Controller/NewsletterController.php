@@ -101,7 +101,6 @@ class NewsletterController extends AbstractController
         return $this->redirectToRoute('admin.newsletters');
     }
 
-
     /**
      * @Route("/admin/surfer/newsletter/{id}", name="admin.surfer.newsletter", methods="POST")
      * @param Surfer $surfer
@@ -125,6 +124,10 @@ class NewsletterController extends AbstractController
     /**
      * @Route("/admin/send/newsletter/{id}", name="admin.newsletter.send")
      * @param Newsletter $newsletter
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function sendNewsletter(Newsletter $newsletter){
         $surfers = $this->getDoctrine()->getRepository(Surfer::class)->findBy(['isSubToNewsletter' => true]);
