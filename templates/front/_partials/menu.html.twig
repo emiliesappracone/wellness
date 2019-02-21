@@ -1,0 +1,44 @@
+{% include 'common/logo.html.twig' %}
+<div class="alignVCenter">
+    {% if app.user %}
+        <a href="{{ path('profile') }}" class="colorAuth">Connecté(e) en tant que <b>{{ app.user.username }}</b></a>
+    {% else %}
+        <a href="{{ path('profile') }}" class="colorAuth">Log in <i class="fa fa-user"></i> </a>
+        <a href="{{ path('subscribe') }}" class="colorAuth backColor margLeft p-3">Sign up <i class="fa fa-user-plus"></i> </a>
+    {% endif %}
+</div>
+
+<div class="header-content">
+    <div class="header-bottom">
+        <!-- Languages -->
+        <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
+            <li class="active">
+                <a>FR <i class="fa fa-flag languageAwe"></i> </a>
+                <ul class="sub-menu">
+                    <li><a>NL</a></li>
+                    <li><a>EN</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- END - Languages -->
+
+        <!-- Hypothetic menu -->
+        {#<ul class="header-nav-primary nav nav-pills collapse navbar-collapse">#}
+        {#<li class="active">#}
+        {#<a href="#">Home <i class="fa fa-chevron-down"></i></a>#}
+
+        {#<ul class="sub-menu">#}
+        {#<li><a href="index-video.html">Video v1</a></li>#}
+        {#<li><a href="index-video-transparent-header.html">Video v2</a></li>#}
+        {#<li><a href="index-google-map.html">Google Map V1</a></li>#}
+        {#<li><a href="index-google-map-transparent-header.html">Google Map v2</a></li>#}
+        {#<li><a href="index-image.html">Image v1</a></li>#}
+        {#<li><a href="index.html">Image v2</a></li>#}
+        {#<li><a href="index-bootstrap-slider.html">Boxed Slider</a></li>#}
+        {#</ul>#}
+        {#</li>#}
+        {#</ul>#}
+        <!-- END - Hypothetic menu -->
+
+    </div><!-- /.header-bottom -->
+</div><!-- /.header-content -->

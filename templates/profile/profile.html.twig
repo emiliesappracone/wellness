@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="profile">
+        <div class="page-wrapper">
+
+            <header class="header">
+                <div class="header-wrapper">
+                    <div class="container">
+                        <div class="header-inner">
+                            <!-- Front menu -->
+                            {% include 'front/_partials/menu.html.twig' %}
+                        </div><!-- /.header-inner -->
+                    </div><!-- /.container -->
+                </div><!-- /.header-wrapper -->
+            </header><!-- /.header -->
+
+            <div class="main">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <!-- Identification Cadre -->
+                            <div class="col-md-12 authentification">
+                                <div class="widget">
+
+                                    <ul class="menu-advanced">
+                                        <li {% if controller == 'profile' %} class="active" {% endif %}><a href="{{ path('profile') }}"><i class="fa fa-user"></i> Edit Profile</a></li>
+                                        <li {% if controller == 'password' %} class="active" {% endif %}><a href="{{ path('profile.password') }}"><i class="fa fa-key"></i> Password</a></li>
+                                        <li {% if controller == 'services' and attribute(app.user, 'getClass') == 'Provider' %} class="active" {% endif %}><a href="{{ path('profile.services') }}"><i class="fa fa-tasks"></i> Services</a></li>
+                                        <li {% if controller == 'stages' and attribute(app.user, 'getClass') == 'Provider' %} class="active" {% endif %}><a href="{{ path('profile.stages') }}"><i class="fa fa-briefcase"></i> Stages</a></li>
+                                        <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- END - Identification Cadre -->
+                            <!-- Services list -->
+                            <div class="col-md-12 services">
+                                {% include 'front/_partials/sidebar.html.twig' %}
+                            </div>
+                            <!-- END - Services list -->
+                        </div>
+                    </div>
+                    <!-- Main Content -->
+                    <div class="col-md-9 informations">
+                        {% for label, messages in app.flashes %}
+                            {% for message in messages %}
+                                <div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </button>
+                                    <strong>{{ message }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {% block container %}
+                            <div class="content">
+                                <div class="page-title">
+                                    <h1>Edit Profile</h1>
+                                </div><!-- /.page-title -->
+
+                                <!-- check whats the entity type logged -->
+                                {% if attribute(app.user, 'getClass') is defined %}
+                                    {% if attribute(app.user, 'getClass') == 'Surfer' %}
+                                        {% include 'profile/_partials/surferForm.html.twig' %}
+                                    {% elseif attribute(app.user, 'getClass') == 'Provider' %}
+                                        {% include 'profile/_partials/providerForm.html.twig' %}
+                                    {% endif %}
+                                {% endif %}
+
+                            </div><!-- /.content -->
+                        {% endblock %}
+                    </div>
+                    <!-- END - Main Content -->
+                </div>
+
+            </div><!-- /.main -->
+        </div>
+    </div>
+{% endblock %}

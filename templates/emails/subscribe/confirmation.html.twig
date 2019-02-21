@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body style="padding: 0;margin: 0;font-family: Arial; font-size:12px;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff">
+    <tr>
+        <td width="600" align="center">
+            <!-- HEADER -->
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td colspan="4" width="600">
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#009f8b" colspan="4" height="20"></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#009f8b" width="30"></td>
+                    <td bgcolor="#009f8b">
+                        <img src="{{ absolute_url(asset('assets/img/logo-white.png')) }}"><span style="color:#fff;padding-left: 1em;font-family: Verdana, Sans-Serif;"><b>Wellness</b></span>
+                    </td>
+                    <td bgcolor="#009f8b">
+                        <p style="color: white;font-family: arial;font-weight: lighter;text-align:right;font-size: 16px;">Welcome in our website !</p>
+                    </td>
+                    <td bgcolor="#009f8b" width="30"></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#009f8b" colspan="4" height="20"></td>
+                </tr>
+            </table>
+            <!-- CONTENT -->
+            <table cellpadding="0" cellspacing="0" border="0" width="600">
+                <tr>
+                    <td width="20" style="background-color:#f9f9f9;"></td>
+                    <td width="560" style="background-color:#f9f9f9; color:#444; font-family: arial; text-align:left; font-size: 13px">
+                        <br/>
+                        <h2>To connect to your profile, please use : </h2>
+                        <p>► <strong>Username : </strong> {{ username }}</p>
+                        <p>► <strong>Password : </strong> the one you choose</p>
+                        <p><i>Sent at : {{ "now"|date("Y/m/d - H:i:s") }} </i></p>
+                        <br/>
+                        <br/>
+                    </td>
+                    <td width="20" style="background-color:#f9f9f9;"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

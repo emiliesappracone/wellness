@@ -1,0 +1,60 @@
+<div class="sidebar-secondary-admin" style="width: 20%;">
+    <ul>
+        <li {% if controller == 'dashboard' %} class="active" {% endif %}>
+            <a href="{{ path("admin") }}">
+                <span class="icon"><i class="fa fa-dashboard"></i></span>
+                <span class="title">Tableau de bord</span>
+                <span class="subtitle">Vue d'ensemble.</span>
+            </a>
+        </li>
+
+        <li {% if controller == 'providers' %} class="active" {% endif %}>
+            <a href="{{ path("admin.providers") }}">
+                <span class="icon"><i class="fa fa-industry"></i></span>
+                <span class="title">Gestion des Prestataires</span>
+                <span class="subtitle">Ajouter, supprimer et modifier.</span>
+            </a>
+        </li>
+
+        <li {% if controller == 'surfers' %} class="active" {% endif %}>
+            <a href="{{ path("admin.surfers") }}">
+                <span class="icon"><i class="fa fa-user"></i></span>
+                <span class="title">Gestion des Internautes</span>
+                <span class="subtitle">Ajouter, supprimer et modifier.</span>
+            </a>
+        </li>
+
+        <li {% if controller == 'comments' %} class="active" {% endif %}>
+            <a href="{{ path("admin.comments") }}">
+                <span class="icon"><i class="fa fa-comment"></i></span>
+                <span class="title">Gestion des Commentaires</span>
+                <span class="subtitle">Ajouter, supprimer et modifier.</span>
+            </a>
+        </li>
+
+        <li {% if controller == 'services' %} class="active" {% endif %}>
+            <a href="{{ path("admin.services") }}">
+                <span class="icon"><i class="fa fa-tasks"></i></span>
+                <span class="title">Gestion des Services</span>
+                <span class="subtitle">Ajouter, supprimer et modifier.</span>
+            </a>
+        </li>
+
+        <li {% if controller == 'newsletters' %} class="active" {% endif %}>
+            <a href="{{ path("admin.newsletters") }}">
+                <span class="icon"><i class="fa fa-envelope"></i></span>
+                <span class="title">Gestion des Newsletters</span>
+                <span class="subtitle">Ajouter, supprimer et modifier.</span>
+            </a>
+        </li>
+
+        {#<li {% if controller == 'pictures' %} class="active" {% endif %}>#}
+        {#<a href="{{ path("admin.pictures") }}">#}
+        {#<span class="icon"><i class="fa fa-picture-o"></i></span>#}
+        {#<span class="title">Gestion des Images du sites</span>#}
+        {#<span class="subtitle">Ajouter, supprimer et modifier.</span>#}
+        {#</a>#}
+        {#</li>#}
+
+    </ul>
+</div><!-- /.sidebar-secondary-admin -->

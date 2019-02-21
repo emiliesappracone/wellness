@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Home{% endblock %}
+
+{% block body %}
+
+    <div class="admin">
+
+        <div class="page-wrapper">
+
+            <!-- Header -->
+            {% include 'admin/_partials/header.html.twig' %}
+            <!-- END - Header -->
+
+            <div class="main">
+                <div class="outer-admin">
+                    <div class="wrapper-admin">
+                        <!-- Sidebar -->
+                        {% include 'admin/_partials/sidebar.html.twig' with {'controller' : controller} %}
+                        <!-- END - Sidebar -->
+                        <div class="content-admin">
+                            {% block container %}
+                                <div class="content-admin-wrapper">
+                                    <div class="content-admin-main">
+                                        <div class="content-admin-main-inner">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <!-- BANDEAU -->
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="p30 background-white mb50">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12 col-lg-6 p-2">
+                                                                            {% block bandeau %}
+                                                                                <h1>Bienvenue</h1>
+                                                                                <p>Administration</p>
+                                                                            {% endblock %}
+                                                                        </div>
+                                                                        <div class="col-sm-12 col-lg-6 p-2">
+                                                                            <!-- SEARCH -->
+                                                                            <div class="display-inline-block">
+                                                                                <div class="hidden-xs visible-lg">
+                                                                                    <div class="header-statusbar-search">
+                                                                                        <input type="text" class="form-control inputSearchAdmin" placeholder="Rechercher ..." style="background-color: transparent;color:#444;border: 2px solid #444;">
+                                                                                    </div><!-- /.header-search -->
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- END SEARCH -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /.message -->
+                                                            </div><!-- /.col-* -->
+                                                        </div><!-- /.row -->
+                                                        <!-- END - BANDEAU -->
+                                                        {% block content %}
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-lg-6 mt-4">
+                                                                    <h3>Catégories de services</h3>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <!-- START LOOP -->
+                                                                {% set cpt = 0 %}
+                                                                {% for service in services %}
+                                                                    {% if cpt is not odd %}
+                                                                        <div class="col-sm-12 col-lg-6">
+                                                                        <div class="row">
+                                                                    {% endif %}
+                                                                    <!-- SERVICE INFOS -->
+                                                                    <div class="col-sm-6">
+                                                                        <div class="statusbox">
+                                                                            <h2>{{ service.name }}</h2>
+                                                                            <div class="statusbox-content">
+                                                                                <small class="adminSmall">{% if service.provider|length > 1 %} {{ service.provider|length ~ ' prestataires' }} {% else %} {{ service.provider|length ~ ' prestataire' }} {% endif %}</small>
+                                                                                <span>Modifiée {{ service.updatedAt|date("d/m/Y") }}</span>
+                                                                            </div>
+
+                                                                            <div class="statusbox-actions">
+                                                                                <a href="#"><i class="fa fa-eye"></i></a>
+                                                                                <a href="#"><i class="fa fa-pencil"></i></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- END SERVICE INFOS -->
+                                                                    {% if cpt is odd %}
+                                                                        </div><!-- /.row -->
+                                                                        </div><!-- /.col-* -->
+                                                                    {% endif %}
+                                                                    {% set cpt = cpt + 1 %}
+                                                                {% endfor %}
+                                                                <!-- END LOOP -->
+                                                            </div><!-- /.row -->
+                                                        {% endblock %}
+                                                    </div>
+                                                </div>
+                                            </div><!-- /.container-fluid -->
+                                        </div><!-- /.content-admin-main-inner -->
+                                    </div><!-- /.content-admin-main -->
+
+                                    {% include 'admin/_partials/footer.html.twig' %}
+                                </div><!-- /.content-admin-wrapper -->
+                            {% endblock %}
+                        </div><!-- /.content-admin -->
+                    </div><!-- /.wrapper-admin -->
+                </div><!-- /.outer-admin -->
+            </div><!-- /.main -->
+        </div><!-- /.page-wrapper -->
+    </div>
+{% endblock %}
+{% block xtraJS %}
+{% endblock %}

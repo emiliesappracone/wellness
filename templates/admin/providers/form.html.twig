@@ -1,0 +1,98 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block content %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <div class="background-white p20 mb50">
+        <h2 class="page-title">{{ action }} prestataire</h2>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        <div class="row" style="background-color: #F0F0F0;padding:1em;margin:1em;">
+            <h4 class="col-md-12"><b>Informations prestataire</b></h4>
+            <div class="form-group col-md-4">
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-4">
+                {{ form_label(form.contactEmail) }}
+                {{ form_widget(form.contactEmail, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-4">
+                {{ form_label(form.phone) }}
+                {{ form_widget(form.phone, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-4">
+                {{ form_label(form.vat) }}
+                {{ form_widget(form.vat, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-4">
+                {{ form_label(form.website) }}
+                {{ form_widget(form.website, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-12">
+                <label>Image</label>
+                {#{{ form_widget(form.picture) }}#}
+            </div>
+        </div>~
+        <div class="row" style="padding:1em;margin:1em;">
+            <h4 class="col-md-12"><b>Informations utilisateur</b></h4>
+            {#<div class="form-group col-md-12">#}
+                {#{{ form_label(form.username) }}#}
+                {#{{ form_widget(form.username, { 'attr': {'class' : 'form-control'}}) }}#}
+            {#</div>#}
+            {#<div class="form-group col-md-12">#}
+                {#{{ form_label(form.password) }}#}
+                {#{{ form_widget(form.password, { 'attr': {'class' : 'form-control'}}) }}#}
+            {#</div>#}
+            <div class="form-group col-md-12">
+                {{ form_label(form.addressStreet) }}
+                {{ form_widget(form.addressStreet, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-12">
+                {{ form_label(form.addressNum) }}
+                {{ form_widget(form.addressNum, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-12">
+                {{ form_label(form.basicEmail) }}
+                {{ form_widget(form.basicEmail, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-12">
+                {{ form_label(form.zipCode) }}
+                {{ form_widget(form.zipCode, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-12">
+                {{ form_label(form.locality) }}
+                {{ form_widget(form.locality, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-12">
+                {{ form_label(form.city) }}
+                {{ form_widget(form.city, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-12">
+                {{ form_label(form.services) }}
+                {{ form_widget(form.services, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-12">
+                <div class="checkbox">
+                    {{ form_label(form.isBanned) }}
+                    {{ form_widget(form.isBanned, { 'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="checkbox">
+                    {{ form_label(form.isRegistered) }}
+                    {{ form_widget(form.isRegistered, { 'attr': {'class' : 'form-control'}}) }}
+                </div>
+            </div>
+            {{ form_widget(form.submit, { 'attr' : { 'class' : 'btn btn-primary' }}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

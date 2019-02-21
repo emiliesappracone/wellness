@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- CDN Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!-- CDN BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CDN GOOGLE FONT -->
+    <link href="http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
+    <!-- LINKS SUPERLIST CSS -->
+    <link href="{{ asset('assets/libraries/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/libraries/owl.carousel/assets/owl.carousel.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/libraries/colorbox/example1/colorbox.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/libraries/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/libraries/bootstrap-fileinput/fileinput.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/superlist.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css">
+
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% block body %}
+    {% block header %}
+
+    {% endblock %}
+    {% block container %}
+
+    {% endblock %}
+    {% block footer %}
+
+    {% endblock %}
+    {% block xtraJS %}
+    {% endblock %}
+
+
+{% endblock %}
+<script src="{{ asset('assets/js/jquery.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/libraries/bootstrap-sass/javascripts/bootstrap/collapse.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/libraries/bootstrap-sass/javascripts/bootstrap/carousel.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/libraries/bootstrap-sass/javascripts/bootstrap/transition.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/libraries/bootstrap-sass/javascripts/bootstrap/dropdown.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/libraries/bootstrap-sass/javascripts/bootstrap/tooltip.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/libraries/bootstrap-sass/javascripts/bootstrap/tab.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/libraries/bootstrap-sass/javascripts/bootstrap/alert.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('assets/libraries/colorbox/jquery.colorbox-min.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('assets/libraries/flot/jquery.flot.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/libraries/flot/jquery.flot.spline.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('assets/libraries/bootstrap-select/bootstrap-select.min.js') }}" type="text/javascript"></script>
+
+<script src="http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing&amp;sensor=false" type="text/javascript"></script>
+
+<script type="text/javascript" src="{{ asset('assets/libraries/jquery-google-map/infobox.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/libraries/jquery-google-map/markerclusterer.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/libraries/jquery-google-map/jquery-google-map.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('assets/libraries/owl.carousel/owl.carousel.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/libraries/bootstrap-fileinput/fileinput.min.js') }}"></script>
+
+<script src="{{ asset('assets/js/superlist.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/map.js') }}" type="text/javascript"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="{{ asset('assets/libraries/ckeditor/adapters/jquery.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/libraries/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/main.js') }}" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>

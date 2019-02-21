@@ -1,0 +1,57 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Administration - Images{% endblock %}
+
+{% block bandeau %}
+    <h2>Images</h2>
+    <p><i>Administrer l'ensemble des images. Créer, éditer et supprimer les images.</i></p>
+    <a class="btn btn-primary" href="{{ path('admin.picture.add') }}"><i class="fa fa-plus whiteText"></i> Ajouter une image</a>
+{% endblock %}
+
+{% block content %}
+    {% if success is defined %}
+        <div class="col-md-12">
+            <div class="alert alert-icon alert-dismissible alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <strong>Well done!</strong> You successfully read this important alert message.
+            </div>
+        </div>
+    {% endif %}
+    <div class="example-wrapper">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Url</th>
+                <th>Rendu</th>
+                <th>Ordre</th>
+                <th>Type</th>
+                <th width="10%">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for picture in pictures %}
+                <tr>
+                    <td><strong>#{{ picture.id }}</strong></td>
+                    {% if picture.image is not null %}
+                        <td>{{ picture.image }}</td>
+                    {% else %}
+                        <td> -</td>
+                    {% endif %}
+                    <td><img src="{{ picture.image }}" width="50"/></td>
+                    <td>{{ picture.orderNum }}</td>
+                    <td>{{ picture.type }}</td>
+                    <td width="10%">
+                        <a href="{{ path("admin.picture.update", {"id":picture.id}) }}" href="#" class="mr-2"><i class="fa fa-pencil text-warning"></i></a>
+                        <form action="" class="noStyle" style="display: inline-block;width: 5%">
+                            <button type="submit" class="btn noStyle"><i class="fa fa-trash text-danger"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

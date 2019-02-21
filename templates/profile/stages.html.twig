@@ -1,0 +1,109 @@
+{% extends 'profile/profile.html.twig' %}
+
+{% block container %}
+    <div class="content">
+        <div class="page-title">
+            <h1>Edit Profile</h1>
+        </div><!-- /.page-title -->
+
+        {#{% for label, messages in app.flashes %}#}
+        {#{% for message in messages %}#}
+        {#<div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">#}
+        {#<button type="button" class="close" data-dismiss="alert" aria-label="Close">#}
+        {#<i class="fa fa-times" aria-hidden="true"></i>#}
+        {#</button>#}
+        {#<strong>{{ message }}</strong>#}
+        {#</div>#}
+        {#{% endfor %}#}
+        {#{% endfor %}#}
+        <form action="{{ path('profile.stages') }}" method="post">
+            <div class="background-white p20 mb30">
+                <h3 class="page-title">
+                    Stages
+                </h3>
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <h4>Liste des stages</h4>
+                        {% for internship in app.user.internship %}
+                            <div class="cards-small">
+                                <div class="card-small">
+                                    <div class="card-small-image" style="white-space: pre-line;">
+                                        <a href="#">
+                                            <b>{{ internship.name }}</b>
+                                        </a>
+                                    </div><!-- /.card-small-image -->
+
+                                    <div class="card-small-content">
+                                        <h3>
+                                            <a href="listing-detail.html">{{ internship.availableFrom|date("d/m/Y") }}
+                                                au {{ internship.availableFrom|date("d/m/Y") }}</a>
+                                        </h3>
+                                        <h4>
+                                            <a href="listing-detail.html">{{ internship.start|date("d/m/Y") }}
+                                                à {{ internship.end|date("d/m/Y") }}</a>
+                                        </h4>
+                                        <div class="card-small-price">{{ internship.price }} €</div>
+                                    </div><!-- /.card-small-content -->
+                                </div><!-- /.card-small -->
+                            </div>
+
+                        {% endfor %}
+                    </div><!-- /.form-group -->
+                    <div class="form-group col-sm-6">
+                        <button class="btn btn-primary" id="addNewInternship">Ajouter un nouveau <i class="fa fa-plus" class="text-info"></i></button>
+                        <div id="showForm" style="display:none;">
+                            {{ form_start(form) }}
+                            <div class="form-group col-sm-6">
+                                <label>Disponible du</label>
+                                {{ form_widget(form.availableFrom, { 'attr' : { 'class' : 'form-control', 'min' : "now"|date("Y-m-d") }}) }}
+                            </div><!-- /.form-group -->
+                            <div class="form-group col-sm-6">
+                                <label>Au</label>
+                                {{ form_widget(form.availableTo, { 'attr' : { 'class' : 'form-control', 'min' : "now"|date("Y-m-d") }}) }}
+                            </div><!-- /.form-group -->
+                            <div class="form-group col-sm-6">
+                                <label>Commence le </label>
+                                {{ form_widget(form.start, { 'attr' : { 'class' : 'form-control', 'min' : "now"|date("Y-m-d") }}) }}
+                            </div><!-- /.form-group -->
+                            <div class="form-group col-sm-6">
+                                <label>Au</label>
+                                {{ form_widget(form.end, { 'attr' : { 'class' : 'form-control', 'min' : "now"|date("Y-m-d") }}) }}
+                            </div><!-- /.form-group -->
+                            <div class="form-group col-sm-12">
+                                <label>Description</label>
+                                {{ form_widget(form.description, { 'attr' : { 'class' : 'form-control', 'height' : '100px' }}) }}
+                            </div><!-- /.form-group -->
+                            <div class="form-group col-sm-6">
+                                <label>Plus d'infos</label>
+                                {{ form_widget(form.moreInfo, { 'attr' : { 'class' : 'form-control' }}) }}
+                            </div><!-- /.form-group -->
+                            <div class="form-group col-sm-6">
+                                <label>Nom</label>
+                                {{ form_widget(form.name, { 'attr' : { 'class' : 'form-control' }}) }}
+                            </div><!-- /.form-group -->
+                            <div class="form-group col-sm-6">
+                                <label>Prix</label>
+                                {{ form_widget(form.price, { 'attr' : { 'class' : 'form-control' }}) }}
+                            </div><!-- /.form-group -->
+
+                            {{ form_widget(form.submit, { 'attr' : { 'class' : 'form-control btn btn-primary' }}) }}
+                            {{ form_end(form) }}
+                        </div>
+                    </div><!-- /.form-group -->
+
+                </div><!-- /.row -->
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#addNewInternship').on('click', function () {
+                $(this).hide();
+                $('#showForm').css({'display': 'block'});
+            });
+        });
+    </script>
+{% endblock %}

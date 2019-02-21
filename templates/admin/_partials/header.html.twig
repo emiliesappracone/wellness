@@ -1,0 +1,19 @@
+<header class="header header-minimal">
+    <div class="header-statusbar">
+        <div class="header-statusbar-inner">
+            <div class="d-flex flex-column headerAdmin">
+                {% include 'common/logo.html.twig' %}
+                <div class="header-statusbar-left">
+                    {% if app.user %}
+                        <p class="helloUser">Hello, <b>{{ app.user.username }}</b> !</p>
+                    {% endif %}
+                </div><!-- /.header-statusbar-left -->
+            </div>
+            <div class="header-statusbar-right">
+                {% if app.user %}
+                    <a href="{{ path('logout') }}" class="btn btn-danger">Se déconnecter <i class="fa fa-power-off"></i> </a>
+                {% endif %}
+            </div><!-- /.header-statusbar-left -->
+        </div><!-- /.header-statusbar-inner -->
+    </div><!-- /.header-statusbar -->
+</header><!-- /.header -->

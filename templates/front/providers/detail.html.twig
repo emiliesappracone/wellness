@@ -1,0 +1,133 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}{{ NameSite }} - Provider{% endblock %}
+
+{% block container %}
+    <div class="col-md-12">
+        {#<div class="row">#}
+        {#<label for="" class="col-md-2">Search :</label>#}
+        {#<input type="text" class="col-md-10"/>#}
+        {#</div>#}
+        <div class="row">
+            {#<div class="filter col-md-12">#}
+            {#<div>#}
+            {#<div class="d-flex">#}
+            {#<ul class="social-links nav nav-pills">#}
+            {#<li><a href="#"><i class="fa fa-twitter"></i></a></li>#}
+            {#<li><a href="#"><i class="fa fa-facebook"></i></a></li>#}
+            {#<li><a href="#"><i class="fa fa-google-plus"></i></a></li>#}
+            {#<li><a href="#"><i class="fa fa-linkedin"></i></a></li>#}
+            {#<li><a href="#"><i class="fa fa-dribbble"></i></a></li>#}
+            {#<li><a href="#"><i class="fa fa-instagram"></i></a></li>#}
+            {#<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>#}
+            {#</ul><!-- /.header-nav-social -->#}
+            {#<div class="btn"><i class="fa fa-arrow-right"></i></div>#}
+            {#<div class="btn"><i class="fa fa-envelope"></i></div>#}
+            {#<div class="btn"><i class="fa fa-comment"></i></div>#}
+            {#<div class="btn"><i class="fa fa-star"></i></div>#}
+            {#</div>#}
+            {#</div>#}
+            <div class="col-md-6 noPadd">
+                <h1>
+                    <div class="display-3 greyText noPadd">
+                        {% if provider.name is not null %}
+                            {{ provider.name }}
+                        {% endif %}
+                    </div>
+                </h1>
+            </div>
+            <div class="col-md-6 ">
+                <div class="btn-group floatRight">
+                    <a href="{{ 'tel:' ~ provider.phone }}" class="btn btn-primary">{{ provider.phone }}</a>
+                    <a href="{{ 'https://' ~ provider.website }}" class="btn btn-primary">{{ provider.website }}</a>
+                </div>
+            </div>
+            <div>
+                {#{% for picture in provider.picture %}#}
+                {#{{ picture }}#}
+                {#<img src="{{ picture }}"/>#}
+                {#<img src="https://res.cloudinary.com/emiliesappracone-be/image/upload/sample.jpg" />#}
+                {#{% endfor %}#}
+            </div>
+            <div class="col-md-12">
+                <h5>Lié aux services suivant : </h5>
+                <div>
+                    {% for service in provider.services %}
+                        <span class="minusPaddOne backColor text-white">{{ service }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h5>Liste des stages : </h5>
+                <div>
+                    {% for internship in provider.internship %}
+                        <a class="minusPaddOne backColor text-white" href="{{ path('internship.detail', {'slug':internship.slug}) }}">{{ internship.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row margTop">
+            <div class="post-meta clearfix">
+                <div class="card-row-title noMarg">
+                    <div style="font-size: 25px" class="margBot">Espace commentaire</div>
+                </div>
+                <button class="btn btn-primary floatRight" id="addComment"
+                        data-user="{{ attribute(app.user, 'getClass') == 'Surfer' }}" data-toggle="modal"
+                        data-target="#myModal">Commenter <a class="fa fa-plus"></a></button>
+                <div class="post-meta-comments"><i class="fa fa-comments"></i> {{ provider.comments|length }}
+                    commentaire(s)
+                </div><!-- /.post-meta-comments -->
+            </div>
+            {% if  attribute(app.user, 'getClass') == 'Surfer' %}
+                <div class="col-md-12" style="display: none" id="makeComment">
+                    <form action="{{ path("front.comment.add", {'provider': provider.id}) }}" method="post">
+                        <label>Commentaire</label>
+                        <textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
+                        <button class="btn btn-default" type="submit">Envoyer</button>
+                    </form>
+                </div>
+            {% endif %}
+
+            {% if provider.comments is not empty and provider.comments is not null %}
+                <div class="comments bg-secondary paddOne col-md-12">
+                    {% for comment in provider.comments %}
+                        {% if comment.surfer is not null %}
+                            <div class="comment col-md-12">
+                                <div class="comment-image">
+                                    <img src="{{ asset('assets/img/tmp/agent-1.jpg') }}" alt="">
+                                </div><!-- /.comment-image -->
+                                <div class="comment-inner">
+                                    <div class="comment-header">
+                                        <h2>{{ comment.surfer.firstname ~ comment.surfer.lastname }} </h2>
+                                        <span class="separator">•</span>
+                                        <span class="comment-date">{{ comment.createdAt|date("d/m/Y H:m") }}</span>
+                                    </div><!-- /.comment-header -->
+
+                                    <div class="comment-content-wrapper">
+                                        <div class="comment-content">
+                                            <p>{{ comment.content }}</p>
+                                        </div><!-- /.comment-content -->
+                                    </div><!-- /.comment-content-wrapper -->
+                                </div><!-- /.comment-inner -->
+                            </div><!-- /.comment -->
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            $('#addComment').on('click', function () {
+                if ($(this).attr('data-user') == false) {
+                    alert('Vous devez être un internaute inscrit pour commenter !');
+                } else {
+                    $('#makeComment').show();
+                }
+            })
+        });
+    </script>
+{% endblock %}

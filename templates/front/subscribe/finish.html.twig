@@ -1,0 +1,19 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}{{ NameSite }} - Subscribe{% endblock %}
+
+{% block fullContainer %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 center margCenter">
+                <div class="page-title" style="display: flex;justify-content:center;position: relative">
+                    <span style="position: absolute;left:0;"></span>
+                    <div style="display: flex;flex-direction:column;justify-content:center;">
+                        <h1 class="subChoiceTitle">Inscription terminée</h1><span></span>
+                        <a href="{{ path('profile') }}" class="btn btn-primary">Login page</a>
+                    </div>
+                </div><!-- /.page-title -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

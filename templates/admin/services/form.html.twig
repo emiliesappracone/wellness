@@ -1,0 +1,40 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block content %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <div class="background-white p20 mb50">
+        <h2 class="page-title">{{ action }} service</h2>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name, { 'attr': {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description, { 'attr': {'class' : 'form-control ckeditor'}}) }}
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                {{ form_widget(form.is_highlighted) }}
+                {{ form_label(form.is_highlighted) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                {{ form_widget(form.is_valid) }}
+                {{ form_label(form.is_valid) }}
+            </div>
+        </div>
+        {{ form_widget(form.submit, { 'attr' : { 'class' : 'btn btn-primary' }}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

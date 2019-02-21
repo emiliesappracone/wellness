@@ -1,0 +1,12 @@
+<div class="sidebar">
+    <div class="widget">
+        <h2 class="widgettitle"><a href="{{ path('services.all') }}">Services</a></h2>
+
+        <ul class="menu">
+            {{ render(controller(
+                'App\\Controller\\ListController::retrieveForListServices',
+                {'where':'list'}
+            )) }}
+        </ul><!-- /.menu -->
+    </div><!-- /.wifget -->
+</div>

@@ -1,0 +1,44 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Administration - Newsletters{% endblock %}
+
+{% block bandeau %}
+    <h2>Newsletters</h2>
+    <p class="margBot"><i>Administrer l'ensemble des newsletters. Créer, éditer et supprimer les newsletters.</i></p>
+    <a href="{{ path('admin.newsletters') }}" class="alert-success whiteText p-3"><i class="fa fa-arrow-left"></i> Liste
+        des newsletters</a>
+    <a href="{{ path('admin.newsletters.users') }}" class="alert-success whiteText p-3"><i class="fa fa-list"></i> Liste
+        des internautes</a>
+{% endblock %}
+
+{% block content %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <div class="background-white p20 mb50">
+        <h2 class="page-title">{{ action }} newsletter</h2>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        <div class="row" style="background-color: #F0F0F0;padding:1em;margin:1em;">
+            <h4 class="col-md-12"><b>Informations newsletter</b></h4>
+            <div class="form-group col-md-8">
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-4">
+                {{ form_label(form.title) }}
+                {{ form_widget(form.title, { 'attr': {'class' : 'form-control'}}) }}
+            </div>
+            <div class="form-group col-md-4">
+                {{ form_widget(form.submit, { 'attr': {'class' : 'form-control btn btn-primary'}}) }}
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

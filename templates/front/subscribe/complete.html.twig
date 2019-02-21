@@ -1,0 +1,35 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}{{ NameSite }} - Subscribe{% endblock %}
+
+{% block fullContainer %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 center margCenter">
+                <div class="page-title" style="display: flex;justify-content:center;position: relative">
+                    <span style="position: absolute;left:0;"></span>
+                    <div style="display: flex;flex-direction:column;justify-content:center;">
+                        <h1 class="subChoiceTitle">Poursuivre l'inscription</h1><span></span>
+                    </div>
+                </div><!-- /.page-title -->
+                {% if type == 'surfer' %}
+                    <div id="surfer">
+                        <!-- Form surfers -->
+                        {% include 'front/subscribe/_second/surfer.html.twig' %}
+                        <!-- END - Form surfers -->
+                    </div>
+                {% else %}
+                    <div id="provider">
+                        <!-- Form providers -->
+                        {% include 'front/subscribe/_second/provider.html.twig' %}
+                        <!-- END - Form providers -->
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/js/Password.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/subscribe.js') }}"></script>
+{% endblock %}

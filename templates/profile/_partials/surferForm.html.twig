@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="background-white p20 mb30">
+        <h3 class="page-title">
+            Contact Information
+
+            <button type="submit" class="btn btn-primary btn-xs pull-right">Save</button>
+        </h3>
+
+        <div class="row mb-4">
+            <div class="form-group col-sm-6">
+                {#<label for="exampleInputFile">File input</label>#}
+                {#{{ form_widget(form.picture) }}#}
+                {#<input type="file" id="exampleInputFile">#}
+                <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="col-sm-6">
+                <!-- IF surfer haven't an image : temp image -->
+                {% if user.picture is null %}
+                    <img src="{{ asset('assets/img/tmp/agent-2.jpg') }}" alt="User Photo" width="200">
+                {% else %}
+                    <img src="{{ asset('images/') ~ user.picture.path }}" alt="User Photo" width="200">
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label>Firstname</label>
+                {{ form_widget(form.firstname, { 'attr' : { 'class' : 'form-control' }}) }}
+            </div><!-- /.form-group -->
+
+            <div class="form-group col-sm-6">
+                <label>Lastname</label>
+                {{ form_widget(form.lastname, { 'attr' : { 'class' : 'form-control' }}) }}
+            </div><!-- /.form-group -->
+
+        </div><!-- /.row -->
+    </div>
+    <div class="background-white p20 mb30">
+        <h3 class="page-title">
+            Newsletter
+            <button type="submit" class="btn btn-primary btn-xs pull-right">Save</button>
+        </h3>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <div class="checkbox">
+                    <label>Subscribe to the newsletter ?</label>
+                    {{ form_widget(form.isSubToNewsletter, { 'attr' : { 'class' : 'form-control' }}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="background-white p20 mb30">
+        <h3 class="page-title">
+            Address
+
+            <button type="submit" class="btn btn-primary btn-xs pull-right">Save</button>
+        </h3>
+
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label>Street</label>
+                {{ form_widget(form.addressStreet, { 'attr' : { 'class' : 'form-control' }}) }}
+            </div><!-- /.form-group -->
+
+            <div class="form-group col-sm-3">
+                <label>House Number</label>
+                {{ form_widget(form.addressNum, { 'attr' : { 'class' : 'form-control' }}) }}
+            </div><!-- /.form-group -->
+
+            <div class="form-group col-sm-3">
+                <label>ZIP</label>
+                {{ form_widget(form.zipCode, { 'attr' : { 'class' : 'form-control' }}) }}
+            </div><!-- /.form-group -->
+
+            <div class="form-group col-sm-6">
+                <label>Locality</label>
+                {{ form_widget(form.locality, { 'attr' : { 'class' : 'form-control' }}) }}
+            </div><!-- /.form-group -->
+
+            <div class="form-group col-sm-6">
+                <label>City</label>
+                {{ form_widget(form.city, { 'attr' : { 'class' : 'form-control' }}) }}
+            </div><!-- /.form-group -->
+
+        </div><!-- /.row -->
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{#{% block javascripts %}#}
+{#<script>#}
+    {#var $dataproto = $('#profile_contact_surfer_picture').attr('data-prototype');#}
+    {#$('#profile_contact_surfer_picture').next().html($dataproto);#}
+{#</script>#}
+{#{% endblock %}#}

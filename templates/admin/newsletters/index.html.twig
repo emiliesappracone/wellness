@@ -1,0 +1,55 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Administration - Newsletters{% endblock %}
+
+{% block bandeau %}
+    <h2>Newsletters</h2>
+    <p class="margBot"><i>Administrer l'ensemble des newsletters. Créer, éditer et supprimer les newsletters.</i></p>
+    <a href="{{ path('admin.newsletters.users') }}" class="alert-success whiteText p-3"><i class="fa fa-list"></i> Liste des internautes</a>
+    <a href="{{ path('admin.newsletters.add') }}" class="alert-success whiteText p-3"><i class="fa fa-plus"></i> Ajouter </a>
+{% endblock %}
+
+{% block content %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <div class="example-wrapper">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Document</th>
+                <th width="10%">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for newsletter in newsletters %}
+                <tr>
+                    <td><strong>{{ newsletter.id }}</strong></td>
+                    {% if newsletter.title is not null %}
+                        <td>{{ newsletter.title }}</td>
+                    {% else %}
+                        <td> - </td>
+                    {% endif %}
+                    <td>{{ newsletter.path }}</td>
+                    <td width="10%">
+                        <form action="{{ path("admin.newsletter.delete", {"id":newsletter.id}) }}" method="post" class="noStyle" style="display: inline-block;width: 5%">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ newsletter.id) }}">
+                            <button type="submit" class="btn noStyle"><i class="fa fa-unlink text-primary"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+<form action="{{ path("subscribe.add.provider") }}" method="post" id="subProvider" style="display: none">
+    <div class="form-group">
+        <div class="row mb-4">
+            <label for="name" class="col-md-4">Nom</label>
+            <input type="text" id="name" name="name" class="form-control col-md-8" value="">
+        </div>
+        <div class="row mb-4">
+            <label for="email" class="col-md-4">Email</label>
+            <input type="text" id="email" name="email" class="form-control col-md-8" value="">
+        </div>
+        <input type="hidden" name="_token" value="{{ csrf_token('create') }}">
+        <button type="submit" class="btn btn-primary mt-4">S'enregistrer</button>
+    </div>
+</form>

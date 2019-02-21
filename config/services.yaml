@@ -1,0 +1,58 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: 'en'
+    brochures_directory: '%kernel.project_dir%/public/images/'
+    adminEmail: 'emilie.sappracone.es@gmail.com'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
+        bind:
+            $adminEmail: '%adminEmail%'
+            $brochures_directory: '%brochures_directory%'
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+    app.tools.mailsender:
+        class: App\Services\MailsSender
+        arguments: ['@mailer', '@twig', '$adminEmail']
+
+    # picturelinker
+    app.tools.picturelinker:
+        class: App\Services\PictureLinker
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+            $brochures_directory: '%brochures_directory%'
+        public: true
+
+    # usermaker
+    app.tools.usermaker:
+        class: App\Services\UsersMaker
+        arguments:
+            ["@doctrine.orm.entity_manager", "@security.user_password_encoder.generic"]
+
+    # events listener to user check on pre-authentication, successful-authentication and failed-authentication
+    core.event.subscriber:
+        class: App\Events\LoginListener
+        arguments: ["@doctrine.orm.entity_manager", '@app.tools.mailsender']
+        tags:
+        - { name: kernel.event_subscriber }

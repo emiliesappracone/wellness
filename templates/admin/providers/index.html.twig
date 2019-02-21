@@ -1,0 +1,59 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Administration - Prestataires{% endblock %}
+
+{% block bandeau %}
+    <h2>Prestataires</h2>
+    <p class="margBot"><i>Administrer l'ensemble des prestataires. Créer, éditer et supprimer les prestataires.</i></p>
+    <a href="{{ path('admin.provider.add') }}" class="alert-success whiteText p-3">Créer <i class="fa fa-plus"></i> </a>
+{% endblock %}
+
+{% block content %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <div class="example-wrapper">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Updated at</th>
+                <th width="10%">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for provider in providers %}
+                <tr>
+                    <td><strong>{{ provider.id }}</strong></td>
+                    {% if provider.name is not null %}
+                        <td>{{ provider.name }}</td>
+                    {% else %}
+                        <td> -</td>
+                    {% endif %}
+                    <td>{{ provider.updatedAt|date("d/m/Y") }}</td>
+                    <td width="10%">
+                        <a href="{{ path("admin.provider.update", {"id":provider.id}) }}"  class="mr-2"><i class="fa fa-pencil text-warning"></i></a>
+                        <form action="{{ path("admin.provider.delete", {"id":provider.id}) }}" method="post" class="noStyle" style="display: inline-block;width: 5%">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ provider.id) }}">
+                            <button type="submit" class="btn noStyle"><i class="fa fa-trash text-danger"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="application/javascript" src="{{ asset('assets/js/Confirm.js') }}"></script>
+{% endblock %}

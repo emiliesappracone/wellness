@@ -1,0 +1,36 @@
+<div class="post">
+    <div class="search"><i class="fa fa-search"></i> Recherche</div>
+    <form action="{{ path("search.providers", {"first":1}) }}" method="get">
+        <div class="row">
+            <div class="col-md-6 form-inline mb-4">
+                <label for="locality" class="col-md-4">Localité</label>
+                <select class="form-control col-md-8" id="locality" name="locality"
+                        placeholder="Localité">
+                    {{ render(controller(
+                        'App\\Controller\\ListController::retrieveForListLocalities'
+                    )) }}
+                </select>
+            </div>
+            <div class="col-md-6 form-inline mb-4">
+                <label for="provider" class="col-md-4">Prestataires</label>
+                <select class="form-control providers col-md-8" id="provider" name="provider">
+                    {{ render(controller(
+                        'App\\Controller\\ListController::retrieveForListProviders'
+                    )) }}
+                </select>
+            </div>
+            <div class="col-md-6 form-inline mb-4">
+                <label for="provider" class="col-md-4">Services</label>
+                <select class="form-control col-md-8" id="services" name="services">
+                    {{ render(controller(
+                        'App\\Controller\\ListController::retrieveForListServices',
+                        {'where':'option'}
+                    )) }}
+                </select>
+            </div>
+            <div class="col-md-6 form-inline mb-4">
+                <button type="submit" class="btn btn-primary" style="margin-left: auto">- Go -</button>
+            </div>
+        </div>
+    </form>
+</div>

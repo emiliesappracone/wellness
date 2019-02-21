@@ -1,0 +1,57 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}{{ NameSite }} - Providers{% endblock %}
+
+{% block container %}
+            <div class="post">
+                {% block content %}
+                    {% if providers is not empty %}
+                        <div class="row">
+                            {% for provider in providers %}
+                                <div class="cards-small col-md-6 mb-4">
+                                    <div class="card-small-image">
+                                        {#{% for logo in provider.logos %}#}
+                                            {#<img src="{{ logo.image }}" alt="image"/>#}
+                                        {#{% endfor %}#}
+                                    </div>
+                                    <div class="card-small-content">
+                                        <h3>{{ provider.id }} -
+                                            {% if provider.name is not null %}
+                                                {{ provider.name }}
+                                            {% else %}
+                                            {% endif %}
+                                        </h3>
+                                        <div class="card-small-price">{{ provider.website }}</div>
+                                        <div>
+                                            <a href="{{ path("provider.one", {"slug":provider.slug}) }}"><i
+                                                        class="fa fa-eye"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-warning">Pas de providers</div>
+                    {% endif %}
+                {% endblock %}
+                <div class="pager">
+                    <ul>
+                        {% if all == 'true' and count > 0 %}
+                            {% set nbrLi = count / 6 %}
+                            {% for li in 1..nbrLi|round %}
+                                <li><a href="{{ path("providers.all", {"first":li}) }}">{{ li }}</a></li>
+                            {% endfor %}
+                        {% else %}
+                            {% if count > 6 and count > 0 %}
+                                {% set nbrLi = count / 6 %}
+                                {% for li in 1..nbrLi|round %}
+                                    <li><a class="submitForm" href="{{ path("search.providers", {"first":li}) }}">{{ li }}</a></li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+
+{% endblock %}

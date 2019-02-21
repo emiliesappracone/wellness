@@ -1,0 +1,44 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}{{ NameSite }} - Stage{% endblock %}
+
+{% block container %}
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6 noPadd">
+                <h1>
+                    <div class="display-3 greyText noPadd">
+                        {% if internship.name is not null %}
+                            {{ internship.name }}
+                        {% endif %}
+                    </div>
+                </h1>
+            </div>
+            <div class="col-md-6">
+                <div class="event">
+                    <div style="display: flex;">
+                        <div class="event-date" style="margin: 0px 15px;">
+                            <span class="day">{{ internship.availableTo|date('d') }}</span>
+                            <span class="month">{{ internship.availableTo|date('M') }}</span>
+                            <span class="year">{{ internship.availableTo|date('y') }}</span>
+                        </div><!-- /.event-date -->
+                        <div style="margin: 0px 15px;">
+                            <a style="text-align: center" class="fa fa-arrow-right"></a>
+                        </div>
+                        <div class="event-date" style="margin: 0px 15px;">
+                            <span class="day">{{ internship.availableFrom|date('d') }}</span>
+                            <span class="month">{{ internship.availableFrom|date('M') }}</span>
+                            <span class="year">{{ internship.availableFrom|date('y') }}</span>
+                        </div><!-- /.event-date -->
+                    </div>
+                </div>
+            </div>
+            <div class="event-content col-md-6">
+                <p>{{ internship.description }}</p>
+                <p>{{ internship.moreInfo }}</p>
+                <div class="event-time"><i class="fa fa-clock-o"></i> {{ internship.start|date('d/m/Y') }}
+                    - {{ internship.end|date('d/m/Y') }}</div><!-- /.event-time -->
+            </div><!-- /.event-content -->
+        </div>
+    </div>
+{% endblock %}

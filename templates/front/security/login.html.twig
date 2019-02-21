@@ -1,0 +1,43 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}{{ NameSite }} - Login{% endblock %}
+
+{% block fullContainer %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 center">
+                <div class="page-title">
+                    <h1>S'authentifier</h1>
+                </div><!-- /.page-title -->
+
+                {% if errors %}
+                    <div class="alert alert-danger">
+                        {{ errors.messageKey }}
+                        {#<div>{{ attempt }}</div>#}
+                    </div>
+                {% endif %}
+
+                <form action="{{ path('login') }}" method="post">
+                    <div class="form-group">
+                        <label for="username">Login</label>
+                        <input type="text" id="username" name="_username" class="form-control" value="{{ lastUsername }}">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="_password" class="form-control">
+
+                        <button type="submit" class="btn btn-primary mt-4">Se connecter</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6 col-md-6 center">
+                <div class="page-title">
+                    <h1>S'inscrire</h1>
+                </div><!-- /.page-title -->
+                <div class="center">
+                    <p>Vous êtes ?</p>
+                    <a href="{{ path('subscribe', {"type":"provider"}) }}" class="btn btn-primary">Prestataire</a>
+                    <a href="{{ path('subscribe', {"type":"surfer"}) }}" class="btn btn-primary">Internaute</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+<option value="">-- select --</option>
+{% for locality in localities %}
+    <option value="{{ locality.locality }}"
+            {% if (app.request.query.get('locality')) is same as(locality.locality) %}
+                selected="selected"
+            {% endif %}
+    >{{ locality.locality }}</option>
+{% endfor %}

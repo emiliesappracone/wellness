@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ NameSite }} - Home{% endblock %}
+
+{% block body %}
+    <div class="front">
+        <div class="page-wrapper">
+            <!-- Header -->
+            <header class="header header-transparent">
+                {% include 'front/_partials/header.html.twig' %}
+            </header>
+            <!-- END - Header -->
+
+            <!-- Slider -->
+            <div class="main">
+                <div class="main-inner header-home">
+                    <div class="content">
+                        <div class="mt-150">
+                            <!-- Slides -->
+                            {% include 'front/_partials/slider.html.twig' %}
+                            <!-- END Slides-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END - Slider -->
+
+            <div class="main">
+                <div class="main-inner">
+                    {% block fullContainer %}
+                        <div class="container">
+                            <div class="row">
+                                {% block slidebarLeft %}
+                                    <div class="col-sm-4 col-lg-3">
+                                        {% include 'front/_partials/sidebar.html.twig' %}
+                                    </div>
+                                {% endblock %}
+                                <div class="col-sm-8 col-lg-9">
+
+                                    <div class="posts">
+                                        <!-- SEARCH BAR  -->
+                                        {% block search %}
+                                            {% include 'front/_partials/search.html.twig' %}
+                                        {% endblock %}
+                                        <!-- END - SEARCH BAR  -->
+                                        {% block container %}
+                                            {% block content %}
+                                            {% endblock %}
+                                        {% endblock %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+            {% block footer %}
+                {% include 'front/_partials/footer.html.twig' %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}

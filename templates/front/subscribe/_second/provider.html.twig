@@ -1,0 +1,79 @@
+{{ form_start(form) }}
+<div class="form-group">
+    <div class="row mb-4">
+        <label for="name" class="col-md-4">Nom</label>
+        {{ form_widget(form.name, { 'attr': {'class' : 'form-control col-md-8', 'readonly' : 'readonly'}}) }}
+    </div>
+    <div class="row mb-4">
+        <label for="email" class="col-md-4">Email</label>
+        {{ form_widget(form.basicEmail, { 'attr': {'class' : 'form-control col-md-8', 'readonly' : 'readonly'}}) }}
+    </div>
+    <div class="row mb-4">
+        <label for="email" class="col-md-4">Description</label>
+        {{ form_widget(form.description, { 'attr': {'class' : 'form-control col-md-8'}}) }}
+    </div>
+    <div class="row mb-4">
+        <label for="email" class="col-md-4">Numéro de GSM (ou mobile)</label>
+        {{ form_widget(form.phone, { 'attr': {'class' : 'form-control col-md-8'}}) }}
+    </div>
+    <div class="row mb-4">
+        <label for="email" class="col-md-4">Numéro de TVA</label>
+        {{ form_widget(form.vat, { 'attr': {'class' : 'form-control col-md-8'}}) }}
+    </div>
+    <div class="row mb-4">
+        <label for="email" class="col-md-4">Lien vers le site officiel</label>
+        {{ form_widget(form.website, { 'attr': {'class' : 'form-control col-md-8'}}) }}
+    </div>
+
+    {#<div class="row mb-4">#}
+    {#<label for="email" class="col-md-4">Photo ou logo</label>#}
+    {#<input type="text" id="email" name="email" class="form-control col-md-8" value="">#}
+    {#{{ form_widget(form.vat, { 'attr': {'class' : 'form-control col-md-8'}}) }}#}
+    {#</div>#}
+    <div class="row mb-4">
+        <p class="col-md-4 deepGrey">Adresse complète</p>
+    </div>
+    <div class="row mb-4">
+        <label for="addressStreet" class="col-md-4">Rue</label>
+        {{ form_widget(form.addressStreet, { 'attr': {'class' : 'form-control col-md-8'}}) }}
+    </div>
+    <div class="row mb-4">
+        <label for="addressNum" class="col-md-4">Numéro</label>
+        {{ form_widget(form.addressNum, { 'attr': {'class' : 'form-control col-md-8'}}) }}
+    </div>
+    <div class="row mb-4">
+        <label for="city" class="col-md-4">Ville</label>
+        {{ form_widget(form.city, { 'attr': {'class' : 'form-control col-md-8'}}) }}
+    </div>
+    <div class="row mb-4">
+        <label for="locality" class="col-md-4">Localité</label>
+        {{ form_widget(form.locality, { 'attr': {'class' : 'form-control col-md-8'}}) }}
+    </div>
+    <div class="row mb-4">
+        <label for="zipCode" class="col-md-4">Code postal</label>
+        {{ form_widget(form.zipCode, { 'attr': {'class' : 'form-control col-md-8'}}) }}
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4"><span class="warning">Password must :</span></div>
+        <div class="col-md-8 warningMsg alignLeft" id="regexPassword">
+            <span>At least contains 1 lowercase, 1 uppercase, 1 number. And the length must be upper 6.</span>
+        </div>
+        <label for="password" class="col-md-4">Mot de passe <div id="passwordPower"></div></label>
+        {{ form_widget(form.password, { 'attr': {'class' : 'form-control col-md-8'}}) }}
+    </div>
+    <div class="row mb-4">
+        <label for="passwordConf" class="col-md-4">Confirmation mot de passe <div id="passwordMatch"></div></label>
+        <input type="password" id="passwordConf" class="form-control col-md-8" value="">
+    </div>
+    {#<input type="hidden" name="_token" value="{{ csrf_token('create') }}">#}
+    {#<button type="submit" class="btn btn-primary mt-4 SaveUsser" disabled>Terminer</button>#}
+    {{ form_widget(form.submit, { 'attr' : { 'class' : 'btn btn-primary mt-4 SaveUser', 'disabled' : 'disabled'}}) }}
+</div>
+{{ form_end(form) }}
+{#• Liste des stages proposés avec pour chaque stage :#}
+{#- Une description#}
+{#- Un tarif#}
+{#- Une date de début et de fin#}
+{#- Des informations complémentaires#}
+{#• Liste des promotions (par exemple : promotion sur un type de soin/massage, une réduction sur un stage,...)#}

@@ -1,0 +1,44 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}{{ NameSite }} - Subscribe{% endblock %}
+
+{% block fullContainer %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 center margCenter">
+                <div class="page-title" style="display: flex;justify-content:center;position: relative">
+                    <span style="position: absolute;left:0;"></span>
+                    <div style="display: flex;flex-direction:column;justify-content:center;">
+                        <h1 class="subChoiceTitle">S'inscrire</h1><span></span>
+                    </div>
+                </div><!-- /.page-title -->
+                <div class="subscribeChoice" data-type="{{ type }}">
+                    <h5>Qui êtes-vous ?</h5>
+                    <button class="btn btn-primary mt-4 subWho" data-value="surfer">Internaute</button>
+                    <button class="btn btn-primary mt-4 subWho" data-value="provider">Provider</button>
+                </div>
+                <div class="messageAlert">
+                    {% for label, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                                <strong>{{ message }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                <!-- Form surfers -->
+                {% include 'front/subscribe/_first/surfer.html.twig' %}
+                <!-- END - Form surfers -->
+                <!-- Form providers -->
+                {% include 'front/subscribe/_first/provider.html.twig' %}
+                <!-- END - Form providers -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/js/subscribe.js') }}"></script>
+{% endblock %}

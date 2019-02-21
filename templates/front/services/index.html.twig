@@ -1,0 +1,31 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}{{ NameSite }} - Services{% endblock %}
+
+{% block container %}
+    <div class="col-md-12">
+        <div class="posts">
+
+            <div class="post">
+                {% block content %}
+                    {% for service in services %}
+                        <div>
+                            <h1>{{ service.id|default('') }} -
+                                {% if service.name is not null %}
+                                    {{ service.name }}
+                                {% else %}
+                                {% endif %}
+                            </h1>
+                            <div>{{ service.description| raw }}</div>
+                            <div>
+                                <a href="{{ path("service.one", {"slug":service.slug}) }}"><i
+                                            class="fa fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
