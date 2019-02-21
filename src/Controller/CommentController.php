@@ -45,6 +45,7 @@ class CommentController extends AbstractController
             $this->getDoctrine()->getManager()->persist($comment);
             $this->getDoctrine()->getManager()->flush();
             // redirect to route with message
+            $this->get('session')->getFlashBag()->clear();
             $this->addFlash('success', 'Création réussie');
             return $this->redirectToRoute("admin.comments");
         }
@@ -68,6 +69,7 @@ class CommentController extends AbstractController
             $this->getDoctrine()->getManager()->persist($comment);
             $this->getDoctrine()->getManager()->flush();
             // redirect to route with message
+            $this->get('session')->getFlashBag()->clear();
             $this->addFlash('success', 'Modification réussie');
             return $this->redirectToRoute("admin.comments");
         }
@@ -89,8 +91,10 @@ class CommentController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $comment->getId(), $request->get('_token'))) {
             $this->getDoctrine()->getManager()->remove($comment);
             $this->getDoctrine()->getManager()->flush();
+            $this->get('session')->getFlashBag()->clear();
             $this->addFlash('success', 'Commentaire supprimé');
         } else {
+            $this->get('session')->getFlashBag()->clear();
             $this->addFlash('danger', 'Commentaire non supprimé');
         }
         return $this->redirectToRoute('admin.comments');

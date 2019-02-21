@@ -40,10 +40,10 @@
                     <td>{{ comment.createdAt|date("d/m/Y") }}</td>
                     <td width="10%">
                         <a href="{{ path("admin.comment.update", {"id":comment.id}) }}"  class="mr-2"><i class="fa fa-pencil text-warning"></i></a>
-                        <form action="{{ path("admin.comment.delete", {"id":comment.id}) }}" method="post" class="noStyle" style="display: inline-block;width: 5%">
+                        <form action="{{ path("admin.comment.delete", {"id":comment.id}) }}" id="{{ comment.id }}" method="post" class="noStyle" style="display: inline-block;width: 5%">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
-                            <button type="submit" class="btn noStyle"><i class="fa fa-trash text-danger"></i></button>
+                            <button type="submit" data-id="{{ comment.id }}" class="btn noStyle"><i class="fa fa-trash text-danger"></i></button>
                         </form>
                     </td>
                 </tr>

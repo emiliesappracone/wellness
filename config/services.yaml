@@ -16,7 +16,6 @@ services:
         public: false
         bind:
             $adminEmail: '%adminEmail%'
-            $brochures_directory: '%brochures_directory%'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -39,10 +38,6 @@ services:
     # picturelinker
     app.tools.picturelinker:
         class: App\Services\PictureLinker
-        arguments:
-            $entityManager: '@doctrine.orm.entity_manager'
-            $brochures_directory: '%brochures_directory%'
-        public: true
 
     # usermaker
     app.tools.usermaker:

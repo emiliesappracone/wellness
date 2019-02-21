@@ -15,23 +15,27 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PictureLinker
 {
-    /**
-     * @var string
-     */
-    private $td;
-    /**
-     * @var EntityManagerInterface
-     */
-    private $em;
+//    /**
+//     * @var string
+//     */
+//    private $td;
+//    /**
+//     * @var EntityManagerInterface
+//     */
+//    private $em;
+//
+//    /**
+//     * PictureLinker constructor.
+//     * @param EntityManagerInterface $entityManager
+//     */
+//    public function __construct(EntityManagerInterface $entityManager, $brochures_directory)
+//    {
+//        $this->em = $entityManager;
+//        $this->td = $brochures_directory;
+//    }
 
-    /**
-     * PictureLinker constructor.
-     * @param EntityManagerInterface $entityManager
-     */
-    public function __construct(EntityManagerInterface $entityManager, $brochures_directory)
+    public function __construct()
     {
-        $this->em = $entityManager;
-        $this->td = $brochures_directory;
     }
 
     /**
@@ -44,11 +48,12 @@ class PictureLinker
         // Get bag of file
         $bag = $request->files->all();
         // Get first element in array
-        $uploadedFile = reset($bag);
+        $currentFile = reset($bag);
         // Get the UploadedFile object
-        $currentFile = $uploadedFile[$type]['name'];
-        $picture->setName($currentFile->getClientOriginalName());
-        $this->upload($currentFile, $picture);
+//        $currentFile = $uploadedFile[$type]['name'];
+        $uploadedFile = $currentFile['name'];
+        $picture->setName($uploadedFile->getClientOriginalName());
+        return [$this->upload($uploadedFile, $picture), $uploadedFile->getClientOriginalName()];
     }
 
     /**
@@ -73,7 +78,7 @@ class PictureLinker
      */
     public function getTargetDirectory()
     {
-        return $this->td;
+        return 'images/';
     }
 
     /**

@@ -45,9 +45,11 @@ class SurferController extends AbstractController
                 $this->getDoctrine()->getManager()->persist($surfer);
                 $this->getDoctrine()->getManager()->flush();
                 // redirect to route with message
+                $this->get('session')->getFlashBag()->clear();
                 $this->addFlash('success', 'Création réussie');
                 return $this->redirectToRoute("admin.surfers");
             } else {
+                $this->get('session')->getFlashBag()->clear();
                 $this->addFlash('danger', 'Email déjà utilisée');
             }
         }
@@ -83,9 +85,11 @@ class SurferController extends AbstractController
                 $this->getDoctrine()->getManager()->persist($surfer);
                 $this->getDoctrine()->getManager()->flush();
                 // redirect to route with message
+                $this->get('session')->getFlashBag()->clear();
                 $this->addFlash('success', 'Edition réussie');
                 return $this->redirectToRoute("admin.surfer.update", ["id" => $id]);
             } else {
+                $this->get('session')->getFlashBag()->clear();
                 $this->addFlash('danger', 'Email déjà utilisée');
             }
         }

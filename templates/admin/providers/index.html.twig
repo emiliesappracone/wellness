@@ -41,10 +41,10 @@
                     <td>{{ provider.updatedAt|date("d/m/Y") }}</td>
                     <td width="10%">
                         <a href="{{ path("admin.provider.update", {"id":provider.id}) }}"  class="mr-2"><i class="fa fa-pencil text-warning"></i></a>
-                        <form action="{{ path("admin.provider.delete", {"id":provider.id}) }}" method="post" class="noStyle" style="display: inline-block;width: 5%">
+                        <form action="{{ path("admin.provider.delete", {"id":provider.id}) }}" id="{{ provider.id }}"  method="post" class="noStyle" style="display: inline-block;width: 5%">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ provider.id) }}">
-                            <button type="submit" class="btn noStyle"><i class="fa fa-trash text-danger"></i></button>
+                            <button type="submit" data-id="{{ provider.id }}" class="btn noStyle"><i class="fa fa-trash text-danger"></i></button>
                         </form>
                     </td>
                 </tr>

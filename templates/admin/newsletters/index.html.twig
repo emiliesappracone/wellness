@@ -41,11 +41,14 @@
                     {% endif %}
                     <td>{{ newsletter.path }}</td>
                     <td width="10%">
-                        <form action="{{ path("admin.newsletter.delete", {"id":newsletter.id}) }}" method="post" class="noStyle" style="display: inline-block;width: 5%">
+                        <form action="{{ path("admin.newsletter.delete", {"id":newsletter.id}) }}" method="post" id="{{ newsletter.id }}" class="noStyle" style="display: inline-block;width: 5%;margin-right: 1em">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ newsletter.id) }}">
-                            <button type="submit" class="btn noStyle"><i class="fa fa-unlink text-primary"></i></button>
+                            <button type="submit" data-id="{{ newsletter.id }}" class="btn noStyle"><i class="fa fa-trash text-danger"></i></button>
                         </form>
+                        <a class="btn noStyle" href="{{ path('admin.newsletter.send', {'id':newsletter.id}) }}"><i class="fa fa-send text-primary"></i></a>
+                    </td>
+                    <td>
                     </td>
                 </tr>
             {% endfor %}

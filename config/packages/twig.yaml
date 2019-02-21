@@ -4,3 +4,4 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         NameSite: Wellness
+        BaseHref: localhost:8000/
