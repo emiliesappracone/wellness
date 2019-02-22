@@ -26,6 +26,11 @@ class Page
      */
     private $content;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $title;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Page
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }

@@ -49,22 +49,27 @@
                 {#<img src="https://res.cloudinary.com/emiliesappracone-be/image/upload/sample.jpg" />#}
                 {#{% endfor %}#}
             </div>
-            <div class="col-md-12">
-                <h5>Lié aux services suivant : </h5>
-                <div>
-                    {% for service in provider.services %}
-                        <span class="minusPaddOne backColor text-white">{{ service }}</span>
-                    {% endfor %}
+            {% if provider.services is not empty %}
+                <div class="col-md-12">
+                    <h5>Lié aux services suivant : </h5>
+                    <div>
+                        {% for service in provider.services %}
+                            <span class="minusPaddOne backColor text-white">{{ service }}</span>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <h5>Liste des stages : </h5>
-                <div>
-                    {% for internship in provider.internship %}
-                        <a class="minusPaddOne backColor text-white" href="{{ path('internship.detail', {'slug':internship.slug}) }}">{{ internship.name }}</a>
-                    {% endfor %}
+            {% endif %}
+            {% if provider.internship is not empty %}
+                <div class="col-md-12">
+                    <h5>Liste des stages : </h5>
+                    <div>
+                        {% for internship in provider.internship %}
+                            <a class="minusPaddOne backColor text-white"
+                               href="{{ path('internship.detail', {'slug':internship.slug}) }}">{{ internship.name }}</a>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
         <div class="row margTop">
             <div class="post-meta clearfix">

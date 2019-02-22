@@ -22,14 +22,20 @@ class SurferType extends AbstractType
         $builder
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
-            ->add('isSubToNewsletter', CheckboxType::class, ['label' => 'Have subscribe to newsletter ?', 'required' => false])
+            ->add('isSubToNewsletter', CheckboxType::class, ['label' => 'Have subscribe to newsletter ?', 'required' => false, 'attr' => [
+                'class' => 'inputHide'
+            ]])
 //            ->add('username', TextType::class)
 //            ->add('password', PasswordType::class, ['required' => false])
             ->add('addressNum', TextType::class)
             ->add('addressStreet', TextType::class)
-            ->add('isBanned', CheckboxType::class, ['required' => false])
+            ->add('isBanned', CheckboxType::class, ['required' => false,'attr' => [
+                'class' => 'inputHide'
+            ]])
             ->add('basicEmail', TextType::class)
-            ->add('isRegistered', CheckboxType::class, ['required' => false])
+            ->add('isRegistered', CheckboxType::class, ['required' => false, 'attr' => [
+                'class' => 'inputHide'
+            ]])
 //            ->add('registeredAt', DateTimeType::class)
             ->add('zipCode', EntityType::class, [
                 'class' => ZipCode::class,

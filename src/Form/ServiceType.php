@@ -26,8 +26,12 @@ class ServiceType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('description', TextareaType::class, ['required' => false])
-            ->add('is_highlighted', CheckboxType::class,  ['label' => 'Is highlighted ?', 'required' => false])
-            ->add('is_valid', CheckboxType::class,  ['label' => 'Is valid ?', 'required' => false])
+            ->add('is_highlighted', CheckboxType::class,  ['label' => 'Is highlighted ?', 'required' => false, 'attr' => [
+                'class' => 'inputHide'
+            ]])
+            ->add('is_valid', CheckboxType::class,  ['label' => 'Is valid ?', 'required' => false, 'attr' => [
+                'class' => 'inputHide'
+            ]])
             ->add('submit', SubmitType::class)
         ;
     }

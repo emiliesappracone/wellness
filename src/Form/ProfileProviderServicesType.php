@@ -19,7 +19,10 @@ class ProfileProviderServicesType extends AbstractType
                 'class' => Service::class,
                 'expanded' => true,
 //                'required' => false,
-                'multiple' => true
+                'multiple' => true,
+                'attr' => [
+                    'class' => 'inputHide'
+                ]
             ])
         ;
     }

@@ -32,12 +32,19 @@ class SecurityController extends AbstractController implements AccessDeniedHandl
         ]);
     }
 
+    /**
+     * Method simple redirect to home page
+     * @param Request $request
+     * @param AccessDeniedException $accessDeniedException
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function handle(Request $request, AccessDeniedException $accessDeniedException)
     {
-        dump($accessDeniedException); die();
-        $errors = 'Vous n\'êtes pas autorisé sur cette page.';
-        return $this->render('front/security/login.html.twig', [
-            'errors' => $errors
-        ]);
+//        dump($accessDeniedException); die();
+//        $errors = 'Vous n\'êtes pas autorisé sur cette page.';
+        // Simple redirection
+        if($accessDeniedException){
+            return $this->redirectToRoute('home');
+        }
     }
 }

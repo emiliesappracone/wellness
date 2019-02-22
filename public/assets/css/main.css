@@ -140,10 +140,6 @@ ADMIN HERE
     background: none;
 }
 
-.profile input[type=checkbox], input[type=radio] {
-    display: none;
-}
-
 .hero-slider .carousel-control.right, .hero-slider .carousel-control.left {
     margin: 0 !important;
     z-index: 9999;
@@ -236,4 +232,12 @@ PROFILE HERE
 
 .front .floatRight {
     float: right;
+}
+
+.inputHide input[type=checkbox], input[type=radio] {
+    display: none !important;
+}
+
+.inputHide {
+    display: none !important;
 }

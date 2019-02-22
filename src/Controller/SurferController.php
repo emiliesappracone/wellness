@@ -144,12 +144,12 @@ class SurferController extends AbstractController
                 $surfer->setIsBanned(false);
                 $this->get('session')->getFlashBag()->clear();
                 $this->addFlash('success', 'Surfer débanni');
-                $this->mailer->sendMail([], 'Account unbanned', $surfer->getBasicEmail(), 'ban/unban');
+                $isSent = $this->mailer->sendMail([], 'Account unbanned', $surfer->getBasicEmail(), 'ban/unban');
             } else {
                 $surfer->setIsBanned(true);
                 $this->get('session')->getFlashBag()->clear();
                 $this->addFlash('success', 'Surfer banni');
-                $this->mailer->sendMail([], 'Account banned', $surfer->getBasicEmail(), 'ban/admin');
+                $isSent = $this->mailer->sendMail([], 'Account banned', $surfer->getBasicEmail(), 'ban/admin');
             }
             $this->getDoctrine()->getManager()->persist($surfer);
             $this->getDoctrine()->getManager()->flush();

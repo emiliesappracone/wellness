@@ -31,6 +31,13 @@
                                         <li {% if controller == 'password' %} class="active" {% endif %}><a
                                                     href="{{ path('profile.password') }}"><i class="fa fa-key"></i>
                                                 Password</a></li>
+
+                                        {% if attribute(app.user, 'getClass') == 'Surfer' %}
+                                        <li {% if controller == 'newsletter' %} class="active" {% endif %}><a
+                                                    href="{{ path('profile.newsletter') }}"><i class="fa fa-send"></i>
+                                                Newsletter</a></li>
+                                        {% endif %}
+
                                         {% if attribute(app.user, 'getClass') == 'Provider' %}
                                             <li {% if controller == 'services' %} class="active" {% endif %}>
                                                 <a href="{{ path('profile.services') }}"><i class="fa fa-tasks"></i>

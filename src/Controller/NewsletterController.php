@@ -71,9 +71,6 @@ class NewsletterController extends AbstractController
             $this->get('session')->getFlashBag()->clear();
             $this->addFlash('success', 'Création réussie');
             return $this->redirectToRoute("admin.newsletters");
-        } else {
-            $this->get('session')->getFlashBag()->clear();
-            $this->addFlash('danger', 'Création non réussie');
         }
 
         return $this->render('admin/newsletters/form.html.twig', [
@@ -84,16 +81,17 @@ class NewsletterController extends AbstractController
     }
 
     /**
-     * @Route("/admin/surfer/newsletter/{id}", name="admin.newsletter.delete", methods="POST")
+     * @Route("/admin/newsletter/remove/{id}", name="admin.newsletter.remove", methods="DELETE")
      * @param Newsletter $newsletter
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function remove(Newsletter $newsletter, Request $request){
-        if ($this->isCsrfTokenValid('newsletter' . $newsletter->getId(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $newsletter->getId(), $request->get('_token'))) {
+            $this->getDoctrine()->getManager()->remove($newsletter);
             $this->getDoctrine()->getManager()->flush();
             $this->get('session')->getFlashBag()->clear();
-            $this->addFlash('success', 'Newsletter désélectionné');
+            $this->addFlash('success', 'Newsletter supprimée');
         } else {
             $this->get('session')->getFlashBag()->clear();
             $this->addFlash('danger', 'Erreur token');

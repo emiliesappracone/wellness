@@ -40,10 +40,10 @@
                     {% endif %}
                     <td>{{ surfer.username }}</td>
                     <td width="10%">
-                        <form action="{{ path("admin.surfer.newsletter", {"id":surfer.id}) }}" method="post" class="noStyle" style="display: inline-block;width: 5%">
+                        <form action="{{ path("admin.surfer.newsletter", {"id":surfer.id}) }}" id="{{ surfer.id }}" method="post" class="noStyle" style="display: inline-block;width: 5%">
                             <input type="hidden" name="_method" value="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token('newsletter' ~ surfer.id) }}">
-                            <button type="submit" class="btn noStyle"><i class="fa fa-unlink text-primary"></i></button>
+                            <button type="submit" data-id="{{ surfer.id }}" class="btn noStyle"><i class="fa fa-unlink text-primary"></i></button>
                         </form>
                     </td>
                 </tr>

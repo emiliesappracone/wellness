@@ -42,9 +42,25 @@
 
         <li {% if controller == 'newsletters' %} class="active" {% endif %}>
             <a href="{{ path("admin.newsletters") }}">
-                <span class="icon"><i class="fa fa-envelope"></i></span>
+                <span class="icon"><i class="fa fa-send"></i></span>
                 <span class="title">Gestion des Newsletters</span>
                 <span class="subtitle">Ajouter, supprimer et modifier.</span>
+            </a>
+        </li>
+
+        <li {% if controller == 'contacts' %} class="active" {% endif %}>
+            <a href="{{ path("admin.contacts") }}">
+                <span class="icon"><i class="fa fa-envelope"></i></span>
+                <span class="title">Gestion des demandes</span>
+                <span class="subtitle">Consulter.</span>
+            </a>
+        </li>
+
+        <li {% if controller == 'pages' %} class="active" {% endif %}>
+            <a href="{{ path("admin.pages") }}">
+                <span class="icon"><i class="fa fa-file-text"></i></span>
+                <span class="title">Gestion des pages</span>
+                <span class="subtitle">Modifier.</span>
             </a>
         </li>
 

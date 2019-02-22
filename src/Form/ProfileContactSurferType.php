@@ -24,9 +24,9 @@ class ProfileContactSurferType extends AbstractType
             ->add('lastname', TextType::class)
             ->add('addressNum', TextType::class)
             ->add('addressStreet', TextType::class)
-            ->add('isSubToNewsletter', CheckboxType::class, array(
-                'required' => false,
-            ))
+//            ->add('isSubToNewsletter', CheckboxType::class, array(
+//                'required' => false,
+//            ))
 //            ->add('picture', PictureType::class, array('label' => 'Image', 'required' => false))
             ->add('zipCode', EntityType::class, [
                 'class' => ZipCode::class,

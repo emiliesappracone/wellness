@@ -1,0 +1,39 @@
+{% extends 'profile/profile.html.twig' %}
+
+{% block container %}
+    <div class="content">
+        <div class="page-title">
+            <h1>Edit Profile</h1>
+        </div><!-- /.page-title -->
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <form action="{{ path('profile.newsletter.update') }}" method="post">
+            <div class="background-white p20 mb30">
+                <h3 class="page-title">
+                    Newsletter
+                    <button type="submit" class="btn btn-primary btn-xs pull-right">Save</button>
+                </h3>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <div class="checkbox">
+                            <label>Subscribe to the newsletter ?</label>
+                            {{ form_widget(form.isSubToNewsletter, { 'attr' : { 'class' : 'form-control' }}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/js/profil.js') }}"></script>
+{% endblock %}

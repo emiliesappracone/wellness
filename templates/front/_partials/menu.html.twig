@@ -19,17 +19,18 @@
         <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
             {% if app.user is null %}
             <li>
-                <ul>
-                    <li><a href="{{ path('front.aboutus') }}">A propos</a></li>
+                <ul class="nav nav-pills">
+                    <li><a href="{{ path('front.aboutus') }}" class="text-white">A propos</a></li>
+                    <li><a href="{{ path('front.contactus') }}" class="text-white">Contact</a></li>
                 </ul>
             </li>
             {% endif %}
-            <li class="active">
-                <a>FR <i class="fa fa-flag languageAwe"></i> </a>
-                <ul class="sub-menu">
-                    <li><a>EN</a></li>
-                </ul>
-            </li>
+            {#<li class="active">#}
+                {#<a>FR <i class="fa fa-flag languageAwe"></i> </a>#}
+                {#<ul class="sub-menu">#}
+                    {#<li><a>EN</a></li>#}
+                {#</ul>#}
+            {#</li>#}
         </ul>
         <!-- END - Languages -->
 

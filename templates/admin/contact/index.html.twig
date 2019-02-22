@@ -1,0 +1,39 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Administration - Contact{% endblock %}
+
+{% block bandeau %}
+    <h2>Liste des demandes</h2>
+    <p class="margBot"><i>Administrer l'ensemble des demandes. Visionner les demandes.</i></p>
+{% endblock %}
+
+{% block content %}
+    <div class="example-wrapper">
+        <table class="table table-striped" id="sortTable">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Subject</th>
+                <th>Content</th>
+                <th>Send at</th>
+                <th>Send By</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in contacts %}
+                <tr>
+                    <td><strong>{{ contact.id }}</strong></td>
+                    {% if contact.subject is not null %}
+                        <td>{{ contact.subject }}</td>
+                    {% else %}
+                        <td> -</td>
+                    {% endif %}
+                    <td>{{ contact.content }}</td>
+                    <td>{{ contact.sentAt|date("d/m/Y") }}</td>
+                    <td>{{ contact.sentFrom }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

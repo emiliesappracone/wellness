@@ -1,0 +1,37 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}{{ NameSite }} - {{ page.title }}{% endblock %}
+
+{% block container %}
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.content }}</p>
+    {% if page.page == 'contactus' %}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {{ form_start(form) }}
+        <div class="form-group col-md-8">
+            {{ form_label(form.sentFrom) }}
+            {{ form_widget(form.sentFrom, { 'attr': {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group col-md-8">
+            {{ form_label(form.subject) }}
+            {{ form_widget(form.subject, { 'attr': {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group col-md-8">
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content, { 'attr': {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group col-md-8">
+            {{ form_widget(form.submit, { 'attr': {'class' : 'form-control'}}) }}
+        </div>
+        {{ form_end(form) }}
+    {% endif %}
+{% endblock %}

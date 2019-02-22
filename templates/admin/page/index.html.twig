@@ -1,0 +1,39 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Administration - Pages{% endblock %}
+
+{% block bandeau %}
+    <h2>Liste des demandes</h2>
+    <p class="margBot"><i>Administrer l'ensemble des pages. Modifier les pages.</i></p>
+{% endblock %}
+
+{% block content %}
+    <div class="example-wrapper">
+        <table class="table table-striped" id="sortTable">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th width="10%">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for page in pages %}
+                <tr>
+                    <td><strong>{{ page.id }}</strong></td>
+                    {% if page.title is not null %}
+                        <td>{{ page.title }}</td>
+                    {% else %}
+                        <td> -</td>
+                    {% endif %}
+                    <td>{{ page.content }}</td>
+                    <td>
+                        <a href="{{ path("admin.page.update", {"id":page.id}) }}"  class="mr-2"><i class="fa fa-pencil text-warning"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
