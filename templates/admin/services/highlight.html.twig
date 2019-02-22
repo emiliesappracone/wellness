@@ -1,0 +1,33 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Administration - Services{% endblock %}
+
+{% block bandeau %}
+    <h2>Services</h2>
+    <p class="margBot"><i>Administrer l'ensemble des services. Créer, éditer et supprimer les services.</i></p>
+{% endblock %}
+
+{% block content %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-icon alert-dismissible alert-{{ label }}" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <div class="example-wrapper">
+        <form action="{{ path('admin.service.highlight') }}">
+            <input type="hidden" name="action" value="highlightService">
+            <label>Choisissez le produit du mois </label>
+            <select name="highlight" class="form-control">
+                {% for service in services %}
+                    <option value="{{ service.id }}" {% if service.id == highlight.id %} selected {% endif %}>{{ service.name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary margTop">Sauver le produit du mois</button>
+        </form>
+    </div>
+{% endblock %}

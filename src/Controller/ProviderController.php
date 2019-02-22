@@ -25,7 +25,6 @@ class ProviderController extends AbstractController
         $this->um = $usersMaker;
     }
 
-
     /**
      * @method show all service providers
      * @Route("/providers/{first}", name="providers.all")
@@ -103,9 +102,11 @@ class ProviderController extends AbstractController
                 $this->getDoctrine()->getManager()->persist($provider);
                 $this->getDoctrine()->getManager()->flush();
                 // redirect to route with message
+                $this->get('session')->getFlashBag()->clear();
                 $this->addFlash('success', 'Création réussie');
                 return $this->redirectToRoute("admin.providers");
             } else {
+                $this->get('session')->getFlashBag()->clear();
                 $this->addFlash('danger', 'Email déjà utilisée');
             }
         }
@@ -139,9 +140,11 @@ class ProviderController extends AbstractController
                 $this->getDoctrine()->getManager()->persist($provider);
                 $this->getDoctrine()->getManager()->flush();
                 // redirect to route with message
+                $this->get('session')->getFlashBag()->clear();
                 $this->addFlash('success', 'Edition réussie');
                 return $this->redirectToRoute("admin.provider.update", ["id" => $id]);
             } else {
+                $this->get('session')->getFlashBag()->clear();
                 $this->addFlash('danger', 'Email déjà utilisée');
             }
         }
@@ -163,8 +166,10 @@ class ProviderController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $provider->getId(), $request->get('_token'))) {
             $this->getDoctrine()->getManager()->remove($provider);
             $this->getDoctrine()->getManager()->flush();
+            $this->get('session')->getFlashBag()->clear();
             $this->addFlash('success', 'Prestataire supprimé');
         } else {
+            $this->get('session')->getFlashBag()->clear();
             $this->addFlash('danger', 'Prestataire non supprimé');
         }
         return $this->redirectToRoute('admin.providers');

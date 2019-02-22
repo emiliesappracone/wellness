@@ -19,6 +19,20 @@ class ServiceRepository extends ServiceEntityRepository
         parent::__construct($registry, Service::class);
     }
 
+    /**
+     * Reset all highlighted service to null
+     * @return bool
+     * @throws \Doctrine\DBAL\DBALException
+     */
+    public function resetHighlight(){
+        $connexion = $this->getEntityManager()->getConnection();
+        $is_highlighted = 0;
+        $query = 'UPDATE service
+            SET is_highlighted = :is_highlighted';
+        $stmt = $connexion->prepare($query);
+        $stmt->bindParam(':is_highlighted' ,$is_highlighted);
+        return $stmt->execute();
+    }
     // /**
     //  * @return Service[] Returns an array of Service objects
     //  */
