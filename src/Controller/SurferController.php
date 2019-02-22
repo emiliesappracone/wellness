@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Surfer;
 use App\Form\SurferType;
+use App\Services\MailsSender;
 use App\Services\UsersMaker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,12 +18,19 @@ class SurferController extends AbstractController
     private $um;
 
     /**
+     * @var MailsSender
+     */
+    private $mailer;
+
+    /**
      * UsersController constructor.
      * @param UsersMaker $usersMaker
+     * @param MailsSender $mailer
      */
-    public function __construct(UsersMaker $usersMaker)
+    public function __construct(UsersMaker $usersMaker, MailsSender $mailer)
     {
         $this->um = $usersMaker;
+        $this->mailer = $mailer;
     }
 
     /**
@@ -70,7 +78,7 @@ class SurferController extends AbstractController
         // call form entity class form
         $form = $this->createForm(SurferType::class, $surfer);
         $isChanged = false;
-        if($request->request->get('surfer')['basicEmail'] != $surfer->getBasicEmail()){
+        if ($request->request->get('surfer')['basicEmail'] != $surfer->getBasicEmail()) {
             $isChanged = $this->um->checkMail($request->request->get('surfer')['basicEmail']);
         }
         // pass request to form
@@ -111,9 +119,43 @@ class SurferController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $surfer->getId(), $request->get('_token'))) {
             $this->getDoctrine()->getManager()->remove($surfer);
             $this->getDoctrine()->getManager()->flush();
+            $this->get('session')->getFlashBag()->clear();
             $this->addFlash('success', 'Surfer supprimé');
         } else {
+            $this->get('session')->getFlashBag()->clear();
             $this->addFlash('danger', 'Surfer non supprimé');
+        }
+        return $this->redirectToRoute('admin.surfers');
+    }
+
+    /**
+     * @Route("/admin/banned/surfer/{id}", name="admin.surfer.banned")
+     * @param Surfer $surfer
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function banned(Surfer $surfer, Request $request)
+    {
+        if ($this->isCsrfTokenValid('banned' . $surfer->getId(), $request->get('_token'))) {
+            if ($surfer->getIsBanned() == true) {
+                $surfer->setIsBanned(false);
+                $this->get('session')->getFlashBag()->clear();
+                $this->addFlash('success', 'Surfer débanni');
+                $this->mailer->sendMail([], 'Account unbanned', $surfer->getBasicEmail(), 'ban/unban');
+            } else {
+                $surfer->setIsBanned(true);
+                $this->get('session')->getFlashBag()->clear();
+                $this->addFlash('success', 'Surfer banni');
+                $this->mailer->sendMail([], 'Account banned', $surfer->getBasicEmail(), 'ban/admin');
+            }
+            $this->getDoctrine()->getManager()->persist($surfer);
+            $this->getDoctrine()->getManager()->flush();
+        } else {
+            $this->get('session')->getFlashBag()->clear();
+            $this->addFlash('danger', 'Surfer non banni');
         }
         return $this->redirectToRoute('admin.surfers');
     }

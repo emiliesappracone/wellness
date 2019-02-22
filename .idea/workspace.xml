@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="450cce9d-bf21-447a-afcf-b450981553a1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/admin/services/highlight.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/emails/ban/unban.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/front/aboutus.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0a7ab10a-64f8-4581-bc81-c8c3987009b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0a7ab10a-64f8-4581-bc81-c8c3987009b3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProviderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProviderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ServiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ServiceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ServiceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/newsletters/users.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/newsletters/users.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/services/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/services/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SurferController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SurferController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/surfers/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/surfers/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front/_partials/menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/_partials/menu.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,15 +55,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/admin/services/index.html.twig">
+      <file leaf-file-name="ProfileController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ProfileController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="598">
+              <caret line="115" column="75" selection-start-line="115" selection-start-column="75" selection-end-line="115" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user" pinned="false" current-in-tab="false">
+        <entry file="das://0a7ab10a-64f8-4581-bc81-c8c3987009b3/schema/isl_wellness/table/user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="change.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/emails/password/change.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-414" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SurferController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SurferController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2162">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/front/_partials/menu.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
-              <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
               <folding>
                 <element signature="e#12#33#0#Twig" expanded="true" />
-                <element signature="e#273#290#0#Twig" expanded="true" />
-                <element signature="e#393#416#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,16 +161,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/front/_partials/sidebar.html.twig" />
-        <option value="$PROJECT_DIR$/templates/profile/_partials/providerForm.html.twig" />
-        <option value="$PROJECT_DIR$/config/packages/stof_doctrine_extensions.yaml" />
-        <option value="$PROJECT_DIR$/templates/front/services/detail.html.twig" />
-        <option value="$PROJECT_DIR$/templates/front/subscribe/finish.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/ListController.php" />
         <option value="$PROJECT_DIR$/src/Entity/Service.php" />
         <option value="$PROJECT_DIR$/public/assets/css/main.css" />
         <option value="$PROJECT_DIR$/templates/front/list/servicesOptions.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/ProfileController.php" />
         <option value="$PROJECT_DIR$/templates/profile/stages.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/InternshipController.php" />
         <option value="$PROJECT_DIR$/templates/front/providers/detail.html.twig" />
@@ -155,7 +183,6 @@
         <option value="$PROJECT_DIR$/src/Form/SurferType.php" />
         <option value="$PROJECT_DIR$/templates/admin/surfers/form.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/CommentController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/SurferController.php" />
         <option value="$PROJECT_DIR$/templates/admin/newsletters/form.html.twig" />
         <option value="$PROJECT_DIR$/src/Services/PictureLinker.php" />
         <option value="$PROJECT_DIR$/src/Services/SendNewsletter.php" />
@@ -168,7 +195,6 @@
         <option value="$PROJECT_DIR$/templates/admin/providers/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/comments/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/newsletters/index.html.twig" />
-        <option value="$PROJECT_DIR$/templates/admin/surfers/index.html.twig" />
         <option value="$PROJECT_DIR$/public/assets/js/SortTable.js" />
         <option value="$PROJECT_DIR$/templates/admin/newsletters/users.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/admin.html.twig" />
@@ -178,6 +204,14 @@
         <option value="$PROJECT_DIR$/src/Events/test.php" />
         <option value="$PROJECT_DIR$/src/Controller/ServiceController.php" />
         <option value="$PROJECT_DIR$/src/Controller/ProviderController.php" />
+        <option value="$PROJECT_DIR$/templates/admin/surfers/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/front/aboutus.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/FrontController.php" />
+        <option value="$PROJECT_DIR$/templates/emails/ban/unban.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/SurferController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ProfileController.php" />
+        <option value="$PROJECT_DIR$/templates/profile/profile.html.twig" />
+        <option value="$PROJECT_DIR$/templates/front/_partials/menu.html.twig" />
       </list>
     </option>
   </component>
@@ -467,6 +501,94 @@
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="surfers" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="emails" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="emails" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ban" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="emails" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="newsletter" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="emails" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="password" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="emails" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="subscribe" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="front" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="front" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="_partials" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="front" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="internship" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="front" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="providers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="front" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="security" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="front" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="services" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="profile" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="wellness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wellness" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="profile" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="_partials" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -482,11 +604,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Emilie Sappracone\Desktop\wellness\templates\emails\ban" />
+      <recent name="C:\Users\Emilie Sappracone\Desktop\wellness\templates\front" />
       <recent name="C:\Users\Emilie Sappracone\Desktop\wellness\templates\emails\newsletter" />
       <recent name="C:\Users\Emilie Sappracone\Desktop\wellness\src\Form" />
-      <recent name="C:\Users\Emilie Sappracone\Desktop\wellness\templates\front" />
       <recent name="C:\Users\Emilie Sappracone\Desktop\wellness\templates\profile" />
-      <recent name="C:\Users\Emilie Sappracone\Desktop\wellness\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Emilie Sappracone\Desktop\wellness\src\Security" />
@@ -526,12 +648,12 @@
       <workItem from="1550595671756" duration="9751000" />
       <workItem from="1550650977324" duration="31878000" />
       <workItem from="1550705167358" duration="123000" />
-      <workItem from="1550737451060" duration="55594000" />
+      <workItem from="1550737451060" duration="60183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132112000" />
+    <option name="totallyTimeSpent" value="136701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -543,6 +665,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.34759918" />
+      <window_info anchor="bottom" id="Database Console" order="8" visible="true" weight="0.33194155" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" x="872" y="198" width="222" height="958" id="Database" order="3" visible="true" weight="0.118336886" />
@@ -557,7 +680,6 @@
       <window_info anchor="right" x="0" y="0" width="124" height="575" id="Documentation" order="3" side_tool="true" weight="0.32967034" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32776618" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -587,131 +709,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Form/CommentType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
-          <folding>
-            <element signature="e#28#51#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Provider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="297" selection-start-line="297" selection-end-line="297" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/ServiceType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="28" column="85" selection-start-line="28" selection-start-column="85" selection-end-line="28" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/services/form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-          <folding>
-            <element signature="e#12#33#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/SurferType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/surfers/form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-          <folding>
-            <element signature="e#12#33#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/UsersMaker.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-953" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/comments/form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-          <folding>
-            <element signature="e#12#33#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1301">
-          <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
-          <folding>
-            <element signature="e#34#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/InternshipController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding>
-            <element signature="e#34#60#0#PHP" expanded="true" />
-            <element signature="e#486#521#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CommentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1081">
-          <caret line="47" column="58" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
-          <folding>
-            <element signature="e#34#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/1ff4ad454b4546bf997a1d99f3b4d338.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/NewsletterType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0a7ab10a-64f8-4581-bc81-c8c3987009b3/schema/isl_wellness/table/newsletter">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Services/PictureLinker.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
@@ -754,36 +757,10 @@
     <entry file="file://$PROJECT_DIR$/config/packages/dev/easy_log_handler.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/emails/newsletter/sub.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-401" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/twig.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/emails/newsletter/newsletter.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0a7ab10a-64f8-4581-bc81-c8c3987009b3/schema/isl_wellness/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0a7ab10a-64f8-4581-bc81-c8c3987009b3/schema/isl_wellness/table/surfer">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -805,16 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="772">
           <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#12#33#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/surfers/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="772">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
           <folding>
             <element signature="e#12#33#0#Twig" expanded="true" />
           </folding>
@@ -869,44 +836,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/admin.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="82" column="136" selection-start-line="82" selection-start-column="136" selection-end-line="82" selection-end-column="136" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-            <element signature="e#6460#6480#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Services/MailsSender.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
           <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
           <folding>
             <element signature="e#1258#1286#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/NewsletterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
-          <folding>
-            <element signature="e#2078#2097#1#PHP" expanded="true" />
-            <element signature="e#1213#1247#0#PHP" expanded="true" />
-            <element signature="e#3269#3288#1#PHP" expanded="true" />
-            <element signature="e#2034#2059#1#PHP" expanded="true" />
-            <element signature="e#4932#4951#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -928,13 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/services/highlight.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
@@ -953,42 +881,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Events/LoginListener.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="108" column="9" lean-forward="true" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SurferController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ServiceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="157" column="10" lean-forward="true" selection-start-line="157" selection-start-column="10" selection-end-line="157" selection-end-column="10" />
-          <folding>
-            <element signature="e#5317#5342#1#PHP" expanded="true" />
-            <element signature="e#4328#4364#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProviderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="104" column="62" lean-forward="true" selection-start-line="104" selection-start-column="62" selection-end-line="104" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -1000,6 +896,210 @@
             <element signature="e#12#33#0#Twig" expanded="true" />
             <element signature="e#273#290#0#Twig" expanded="true" />
             <element signature="e#393#416#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Services/UserChecker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding>
+            <element signature="e#125#165#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front/security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <element signature="e#12#33#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/surfers/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="48" column="80" selection-start-line="48" selection-start-column="80" selection-end-line="48" selection-end-column="80" />
+          <folding>
+            <element signature="e#12#33#0#Twig" expanded="true" />
+            <element signature="e#1705#1724#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://0a7ab10a-64f8-4581-bc81-c8c3987009b3/schema/isl_wellness/table/page">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front/aboutus.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding>
+            <element signature="e#12#33#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/FrontController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#34#54#0#PHP" expanded="true" />
+            <element signature="e#310#333#0#PHP" expanded="true" />
+            <element signature="e#627#652#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProviderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2277">
+          <caret line="104" column="62" lean-forward="true" selection-start-line="104" selection-start-column="62" selection-end-line="104" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ServiceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3496">
+          <caret line="157" column="10" lean-forward="true" selection-start-line="157" selection-start-column="10" selection-end-line="157" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/emails/ban/unban.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="24" column="143" selection-start-line="24" selection-start-column="143" selection-end-line="24" selection-end-column="143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/emails/ban/admin.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/admin.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="692">
+          <caret line="82" column="136" selection-start-line="82" selection-start-column="136" selection-end-line="82" selection-end-column="136" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+            <element signature="e#6460#6480#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front/front.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-677">
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile/_partials/providerForm.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/NewsletterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1853">
+          <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4334">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/emails/newsletter/newsletter.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/emails/newsletter/sub.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/emails/newsletter/unsub.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://0a7ab10a-64f8-4581-bc81-c8c3987009b3/schema/isl_wellness/table/surfer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/emails/password/change.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-414" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="115" column="75" selection-start-line="115" selection-start-column="75" selection-end-line="115" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://0a7ab10a-64f8-4581-bc81-c8c3987009b3/schema/isl_wellness/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile/profile.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="36" column="69" selection-start-line="36" selection-start-column="69" selection-end-line="36" selection-end-column="69" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SurferController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2162">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front/_partials/header.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front/_partials/menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding>
+            <element signature="e#12#33#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

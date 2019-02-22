@@ -26,6 +26,7 @@
                 <th>ID</th>
                 <th>Firstname</th>
                 <th>Username</th>
+                <th>Bannir</th>
                 <th width="10%">Actions</th>
             </tr>
             </thead>
@@ -39,6 +40,15 @@
                         <td> -</td>
                     {% endif %}
                     <td>{{ surfer.username }}</td>
+                    <td>
+                        <form action="{{ path("admin.surfer.banned", {"id":surfer.id}) }}" id="{{ surfer.id }}" method="post" class="noStyle"
+                              style="display: inline-block;width: 5%">
+                            <input type="hidden" name="_method" value="POST">
+                            <input type="hidden" name="_token" value="{{ csrf_token('banned' ~ surfer.id) }}">
+                            <button type="submit" data-id="{{ surfer.id }}" class="btn noStyle onDelete">
+                                <i class="fa fa-{% if surfer.isBanned == 'true' %}unlock{% else %}ban{% endif %}"></i></button>
+                        </form>
+                    </td>
                     <td width="10%">
                         <a href="{{ path("admin.surfer.update", {"id":surfer.id}) }}" class="mr-2"><i
                                     class="fa fa-pencil text-warning"></i></a>
@@ -55,3 +65,4 @@
         </table>
     </div>
 {% endblock %}
+

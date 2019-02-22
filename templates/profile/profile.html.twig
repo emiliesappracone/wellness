@@ -25,11 +25,22 @@
                                 <div class="widget">
 
                                     <ul class="menu-advanced">
-                                        <li {% if controller == 'profile' %} class="active" {% endif %}><a href="{{ path('profile') }}"><i class="fa fa-user"></i> Edit Profile</a></li>
-                                        <li {% if controller == 'password' %} class="active" {% endif %}><a href="{{ path('profile.password') }}"><i class="fa fa-key"></i> Password</a></li>
-                                        <li {% if controller == 'services' and attribute(app.user, 'getClass') == 'Provider' %} class="active" {% endif %}><a href="{{ path('profile.services') }}"><i class="fa fa-tasks"></i> Services</a></li>
-                                        <li {% if controller == 'stages' and attribute(app.user, 'getClass') == 'Provider' %} class="active" {% endif %}><a href="{{ path('profile.stages') }}"><i class="fa fa-briefcase"></i> Stages</a></li>
-                                        <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                        <li {% if controller == 'profile' %} class="active" {% endif %}><a
+                                                    href="{{ path('profile') }}"><i class="fa fa-user"></i> Edit Profile</a>
+                                        </li>
+                                        <li {% if controller == 'password' %} class="active" {% endif %}><a
+                                                    href="{{ path('profile.password') }}"><i class="fa fa-key"></i>
+                                                Password</a></li>
+                                        {% if attribute(app.user, 'getClass') == 'Provider' %}
+                                            <li {% if controller == 'services' %} class="active" {% endif %}>
+                                                <a href="{{ path('profile.services') }}"><i class="fa fa-tasks"></i>
+                                                    Services</a></li>
+                                            <li {% if controller == 'stages' %} class="active" {% endif %}><a
+                                                        href="{{ path('profile.stages') }}"><i
+                                                            class="fa fa-briefcase"></i> Stages</a></li>
+                                        {% endif %}
+                                        <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

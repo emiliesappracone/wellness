@@ -1,10 +1,15 @@
 {% include 'common/logo.html.twig' %}
 <div class="alignVCenter">
     {% if app.user %}
-        <a href="{{ path('profile') }}" class="colorAuth">Connecté(e) en tant que <b>{{ app.user.username }}</b></a>
+        {% if attribute(app.user, 'getClass') == 'Provider' or attribute(app.user, 'getClass') == 'Surfer' %}
+            <a href="{{ path('profile') }}" class="colorAuth">Connecté(e) en tant que <b>{{ app.user.username }}</b></a>
+        {% else %}
+            <a href="{{ path('admin') }}" class="colorAuth">Connecté(e) en tant que <b>{{ app.user.username }}</b></a>
+        {% endif %}
     {% else %}
         <a href="{{ path('profile') }}" class="colorAuth">Log in <i class="fa fa-user"></i> </a>
-        <a href="{{ path('subscribe') }}" class="colorAuth backColor margLeft p-3">Sign up <i class="fa fa-user-plus"></i> </a>
+        <a href="{{ path('subscribe') }}" class="colorAuth backColor margLeft p-3">Sign up <i
+                    class="fa fa-user-plus"></i> </a>
     {% endif %}
 </div>
 
@@ -12,10 +17,16 @@
     <div class="header-bottom">
         <!-- Languages -->
         <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
+            {% if app.user is null %}
+            <li>
+                <ul>
+                    <li><a href="{{ path('front.aboutus') }}">A propos</a></li>
+                </ul>
+            </li>
+            {% endif %}
             <li class="active">
                 <a>FR <i class="fa fa-flag languageAwe"></i> </a>
                 <ul class="sub-menu">
-                    <li><a>NL</a></li>
                     <li><a>EN</a></li>
                 </ul>
             </li>

@@ -8,6 +8,7 @@ use App\Form\ProfileContactProviderType;
 use App\Form\ProfileContactSurferType;
 use App\Form\ProfileProviderInternshipType;
 use App\Form\ProfileProviderServicesType;
+use App\Services\MailsSender;
 use App\Services\PictureLinker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,16 +19,26 @@ class ProfileController extends AbstractController
 {
     private $encoder;
     private $pl;
-    public function __construct(UserPasswordEncoderInterface $encoder, PictureLinker $pictureLinker)
+
+    /**
+     * @var MailsSender
+     */
+    private $mailer;
+
+    public function __construct(UserPasswordEncoderInterface $encoder, PictureLinker $pictureLinker, MailsSender $mailer)
     {
         $this->encoder = $encoder;
         $this->pl = $pictureLinker;
+        $this->mailer = $mailer;
     }
 
     /**
      * @Route("/profile", name="profile")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function index(Request $request)
     {
@@ -40,16 +51,20 @@ class ProfileController extends AbstractController
             $form = $this->createForm(ProfileContactSurferType::class, $user);
         }
         // pass request to form
-//        dd($request);
-//        $pictureName = $form->getData()->getPicture()->getName();
-//        $this->pl->checkBag($request, 'picture', $pictureName);
-//        dd($pictureName);
         $form->handleRequest($request);
         // check if $form is submitted
         if ($form->isSubmitted() && $form->isValid()) {
             /**
              * NEED CHECK HERE
              */
+            if ($userType == 'Surfer') {
+                if ($user->getIsSubToNewsletter()) {
+                    $this->mailer->sendMail([], 'You just subscribed to our newsletter', $user->getBasicEmail(), 'newsletter/sub');
+                }else{
+                    $this->mailer->sendMail([], 'You just unsubscribed to our newsletter', $user->getBasicEmail(), 'newsletter/unsub');
+                }
+            }
+
             $picture = $form->getData()->getPicture();
             $uploadedFile = $this->pl->getUploadedFile($request, 'picture', $picture);
             // if is provider add two files
@@ -67,6 +82,7 @@ class ProfileController extends AbstractController
             'user' => $user
         ]);
     }
+
     /**
      * @Route("/profile/password", name="profile.password")
      */
@@ -97,6 +113,7 @@ class ProfileController extends AbstractController
                 $this->getDoctrine()->getManager()->flush();
                 $this->get('session')->getFlashBag()->clear();
                 $this->addFlash("success", "Mot de passe modifié");
+                $this->mailer->sendMail(['username' => $user->getUsername()], 'You just changed your password', $user->getBasicEmail(), 'password/change');
                 return $this->redirectToRoute('profile');
             } else {
                 $this->get('session')->getFlashBag()->clear();
